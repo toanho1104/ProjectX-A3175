@@ -3,6 +3,8 @@ import { icons } from '../assets/icons'
 export const screenName = {
   Explore: 'Explore',
   Search: 'Search',
+  Love: 'Love',
+  User: 'User',
   BottomTabBarRoute: 'BottomTabBarRoute',
 }
 
@@ -12,15 +14,15 @@ export const bottom_tab_data = [
     image: icons.explore,
   },
   {
-    title: 'Sản phẩm',
-    image: icons.explore,
+    title: 'Tìm kiếm',
+    image: icons.search,
   },
   {
-    title: 'Giỏ Hàng',
-    image: icons.explore,
+    title: 'Yêu thích',
+    image: icons.love,
   },
   {
-    title: 'Cá nhân',
-    image: icons.explore,
+    title: 'Tài khoản',
+    image: icons.user,
   },
 ]

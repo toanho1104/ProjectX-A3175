@@ -1,11 +1,11 @@
 export const colors = {
-  primaryDark: '#c41c00',
-  primary: '#ff5722',
-  primaryLight: '#ff8a50',
+  primaryDark: '#00004F',
+  primary: '#19227C',
+  primaryLight: '#524AAC',
 
-  secondaryDark: '#ba68c8',
-  secondary: '#ba68c8',
-  secondaryLight: '#ba68c8',
+  secondaryDark: '#C8B900',
+  secondary: '#FFEB3B',
+  secondaryLight: '#FFFF72',
 
   textDark: '#000000',
   textLight: '#757575',
@@ -13,6 +13,9 @@ export const colors = {
   textOnSecondary: '#000000',
 
   iconPrimary: '#60727d',
+
+  backgroundPrimary: '#ffffff',
+  backgroundSecondary: '#E5E5E5',
 
 }
 

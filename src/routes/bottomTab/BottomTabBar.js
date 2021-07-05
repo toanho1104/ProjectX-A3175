@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  View, Image, Dimensions, SafeAreaView, Text, TouchableOpacity, StyleSheet,
+  View, Image, Dimensions, SafeAreaView, Text, TouchableOpacity,
 } from 'react-native'
 import { colors, fonts } from '../../assets/styles'
 
@@ -17,25 +17,29 @@ const BottomTabBarCom = ({ state, descriptors, navigation }) => {
   return (
     <SafeAreaView>
       <View style={{
-        flexDirection: 'row',
-        backgroundColor: colors.background,
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        width,
-        height: 60 * rate,
-        // borderTopWidth: 1 * StyleSheet.hairlineWidth,
-        // borderTopColor: colors.iconPrimary,
         shadowColor: '#000',
         shadowOffset: {
           width: 0,
           height: 0,
         },
-        shadowOpacity: 0.27,
+        shadowOpacity: 1.45,
         shadowRadius: 4.65,
 
         elevation: 1,
+        height: 0.5,
+      }}
+      />
+      <View style={{
+        flexDirection: 'row',
+        backgroundColor: colors.backgroundPrimary,
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width,
+        height: 60 * rate,
+        zIndex: 10,
       }}
       >
+
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key]
           const label = options.tabBarLabel !== undefined

@@ -2,7 +2,14 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import BottomTabBarCom from './BottomTabBar'
 import { screenName } from '../../configs'
-import { Explore, Search } from '../../screens'
+import {
+  Explore, Love, Search, User,
+} from '../../screens'
+// import screens from '../../screens'
+
+// const {
+//   Explore, Love, Search, User,
+// } = screens
 
 const Tab = createBottomTabNavigator()
 const BottomTabBarRoute = () => {
@@ -21,16 +28,16 @@ const BottomTabBarRoute = () => {
         component={Search}
         options={{ title: 'Sản phẩm' }}
       />
-      {/* <Tab.Screen
-        name={screenName.CartScreen}
-        component={CartScreen}
+      <Tab.Screen
+        name={screenName.Love}
+        component={Love}
         options={{ title: 'Giỏ hàng' }}
       />
       <Tab.Screen
-        name={screenName.AccountScreen}
-        component={AccountScreen}
+        name={screenName.User}
+        component={User}
         options={{ title: 'Tài khoản' }}
-      /> */}
+      />
 
     </Tab.Navigator>
   )

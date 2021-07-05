@@ -5,15 +5,15 @@ import {
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const Explore = () => {
+const Love = () => {
   return (
     <View>
-      <Text>Explore</Text>
+      <Text>love</Text>
     </View>
   )
 }
 
-export default Explore
+export default Love
 
 const styles = StyleSheet.create({
   container: {
