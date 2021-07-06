@@ -2,14 +2,10 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import BottomTabBarCom from './BottomTabBar'
 import { screenName } from '../../configs'
+import I18n from '../../languages'
 import {
   Explore, Love, Search, User,
 } from '../../screens'
-// import screens from '../../screens'
-
-// const {
-//   Explore, Love, Search, User,
-// } = screens
 
 const Tab = createBottomTabNavigator()
 const BottomTabBarRoute = () => {
@@ -21,12 +17,12 @@ const BottomTabBarRoute = () => {
       <Tab.Screen
         name={screenName.Explore}
         component={Explore}
-        options={{ title: 'Khám phá' }}
+        options={{ title: I18n.t('explore') }}
       />
       <Tab.Screen
         name={screenName.Search}
         component={Search}
-        options={{ title: 'Sản phẩm' }}
+        options={{ title: I18n.t('search') }}
       />
       <Tab.Screen
         name={screenName.Love}
