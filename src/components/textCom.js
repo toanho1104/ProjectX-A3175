@@ -8,7 +8,7 @@ const TextCom = ({
   children, headingLarge, headingMedium, headingSmall, textInput,
   linkTextBold, linkTextNomarl, buttonTextBold, buttonTextNomarl,
   contenTextBold, contenTextRegular, contenTextItalic, textPrimary,
-  textSecondary, textOnPrimary, textOnSecondary,
+  textSecondary, textOnPrimary, textOnSecondary, textBottomTab,
 }) => {
   const theme = useSelector((state) => state.storage.theme)
   return (
@@ -29,6 +29,7 @@ const TextCom = ({
         contenTextRegular && { ...textStyles.contenTextRegular },
         contenTextItalic && { ...textStyles.contenTextItalic },
         textInput && { ...textStyles.textInput, flex: 1 },
+        textBottomTab && { color: theme.primary, ...textStyles.textBottomTab },
       ]}
     >
       {children}

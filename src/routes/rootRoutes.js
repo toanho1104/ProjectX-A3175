@@ -15,9 +15,9 @@ const RootRoutes = () => {
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
       >
+        <Stack.Screen name={screenName.Wellcome} component={Wellcome} />
         <Stack.Screen name={screenName.BottomTabBarRoute} component={BottomTabBarRoute} />
         <Stack.Screen name={screenName.Splash} component={Splash} />
-        <Stack.Screen name={screenName.Wellcome} component={Wellcome} />
       </Stack.Navigator>
     </NavigationContainer>
   )

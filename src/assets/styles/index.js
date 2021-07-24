@@ -137,6 +137,10 @@ export const textStyles = {
     fontSize: 16,
     // lineHeight: 1.2,
   },
+  textBottomTab: {
+    ...fonts.bold,
+    fontSize: 14,
+  },
 
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import {
   View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image,
 } from 'react-native'
@@ -13,6 +13,7 @@ const rate = width / 375
 const BotViewButton = () => {
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
+  console.log('deng nhap')
   return (
     <View style={[styles.container, { backgroundColor: theme.primary }]}>
       <TouchableOpacity style={styles.button}>
@@ -29,7 +30,7 @@ const BotViewButton = () => {
   )
 }
 
-export default BotViewButton
+export default memo(BotViewButton)
 
 const styles = StyleSheet.create({
   container: {

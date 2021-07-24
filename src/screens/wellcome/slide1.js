@@ -20,12 +20,12 @@ const Slide1 = () => {
           source={images.hello}
           style={{ height: 200, width: 200 }}
         />
-        <LottieView
-          source={images.hello}
+        {/* <LottieView
+          source={images.unlocked}
           autoPlay
           loop
           style={styles.image}
-        />
+        /> */}
       </View>
 
     </BackGroundView>

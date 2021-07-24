@@ -14,7 +14,7 @@ import { BackGroundView } from '../../components/index'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const Splash = () => {
+const Splash = ({ navigation }) => {
   const dispatch = useDispatch()
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
@@ -35,7 +35,8 @@ const Splash = () => {
     }
 
     setTimeout(() => {
-      NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
+      // NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
+      navigation.replace(screenName.BottomTabBarRoute)
     }, 3000)
   }, [persist.rehydrated])
 

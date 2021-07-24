@@ -4,6 +4,7 @@ import {
 } from 'react-native'
 import { useSelector } from 'react-redux'
 import { colors, fonts } from '../../assets/styles'
+import { TextCom } from '../../components'
 
 import { bottom_tab_data } from '../../configs'
 
@@ -91,14 +92,11 @@ const BottomTabBarCom = ({ state, descriptors, navigation }) => {
                 }}
                 resizeMode="contain"
               />
-              {isFocused && <Text
-                style={{
-                  color: theme.primary,
-                  ...fonts.Bold,
-                }}
+              {isFocused && <TextCom
+                textBottomTab
               >
                 {label}
-              </Text>}
+              </TextCom>}
             </TouchableOpacity>
           )
         })}

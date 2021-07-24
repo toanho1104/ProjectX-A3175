@@ -14,14 +14,15 @@ import BotViewButton from './botViewButton'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const WellcomeScreen = () => {
+  console.log('wellcom')
   return (
     <View style={{ flex: 1 }}>
-      <Swiper style={styles.wrapper} loop={false} scrollEnabled>
+      {/* <Swiper style={styles.wrapper} loop={false} scrollEnabled>
         <Slide1 />
         <Slide2 />
         <Slide3 />
-      </Swiper>
-      <BotViewButton />
+      </Swiper> */}
+      {/* <BotViewButton /> */}
 
     </View>
   )
@@ -30,7 +31,6 @@ const WellcomeScreen = () => {
 export default WellcomeScreen
 const styles = StyleSheet.create({
   wrapper: {},
-
   botView: {
     height: 50 * rate,
     flexDirection: 'row',
