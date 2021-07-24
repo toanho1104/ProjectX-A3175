@@ -35,8 +35,7 @@ const Splash = ({ navigation }) => {
     }
 
     setTimeout(() => {
-      // NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
-      navigation.replace(screenName.BottomTabBarRoute)
+      NavigationHelpers.navigateToScreen(screenName.Wellcome)
     }, 3000)
   }, [persist.rehydrated])
 

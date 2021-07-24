@@ -4,7 +4,10 @@ import {
 } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../../assets/styles'
+import { screenName } from '../../configs'
 import { languesActions } from '../../redux/actions'
+import { NavigationHelpers } from '../../utils'
+
 // import I18n from '../../languages'
 
 const { width } = Dimensions.get('window')
@@ -15,19 +18,27 @@ const Explore = () => {
   }, [])
   const dispatch = useDispatch()
   const chanlangEN = () => {
-    // dispatch(langguesActions.chanlanggues({
-    //   id: 'en',
-    // }), () => { })
+    dispatch(languesActions.changeLangues({
+      id: 'en',
+    }))
   }
   const vi = () => {
-    // dispatch(langguesActions.chanlanggues({
-    //   id: 'vi',
-    // }), () => { })
+    dispatch(languesActions.changeLangues({
+      id: 'vi',
+    }))
+  }
+  const login = () => {
+    NavigationHelpers.navigateToScreen(screenName.LoginScreen)
   }
 
   return (
     <View style={styles.container}>
-      <Text>Explore</Text>
+      <TouchableOpacity
+        onPress={login}
+      >
+        <Text>login</Text>
+      </TouchableOpacity>
+
       <Text>Explore</Text>
       <TouchableOpacity
         onPress={chanlangEN}

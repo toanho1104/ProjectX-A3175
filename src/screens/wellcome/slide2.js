@@ -12,6 +12,7 @@ import { images } from '../../assets/images'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const Slide2 = () => {
+  console.log('Slide2')
   return (
     <BackGroundView>
       <Text>aaaa</Text>

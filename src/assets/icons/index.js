@@ -3,4 +3,5 @@ export const icons = {
   search: require('./search.png'),
   love: require('./love.png'),
   user: require('./user.png'),
+  check: require('./check.png'),
 }

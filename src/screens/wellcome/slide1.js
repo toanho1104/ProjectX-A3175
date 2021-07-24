@@ -7,27 +7,28 @@ import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import LottieView from 'lottie-react-native'
 
-import { BackGroundView } from '../../components/index'
+import { BackGroundView, TextCom } from '../../components/index'
 import { images } from '../../assets/images'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const Slide1 = () => {
+  console.log('Slide1')
   return (
     <BackGroundView>
-      <View style={{ width: 400, height: 400 }}>
-        <FastImage
+      <View style={styles.imageView}>
+        <LottieView
           source={images.hello}
-          style={{ height: 200, width: 200 }}
-        />
-        {/* <LottieView
-          source={images.unlocked}
           autoPlay
           loop
           style={styles.image}
-        /> */}
+        />
       </View>
-
+      <TextCom
+        headingLarge
+      >
+        xin chao
+      </TextCom>
     </BackGroundView>
   )
 }
@@ -39,8 +40,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+  imageView: {
+    marginTop: 50 * rate,
+  },
   image: {
-    width: 300,
-    height: 300,
+    width: 150 * rate,
+    height: 150 * rate,
+    // borderWidth: 1,
+
   },
 })
