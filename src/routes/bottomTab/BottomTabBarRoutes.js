@@ -1,14 +1,15 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { useSelector } from 'react-redux'
 import BottomTabBarCom from './BottomTabBar'
 import { screenName } from '../../configs'
-import I18n from '../../languages'
 import {
   Explore, Love, Search, User,
 } from '../../screens'
 
 const Tab = createBottomTabNavigator()
 const BottomTabBarRoute = () => {
+  const language = useSelector((state) => state.storage.language)
   return (
     <Tab.Navigator
       tabBar={(props) => <BottomTabBarCom {...props} />}
@@ -17,22 +18,22 @@ const BottomTabBarRoute = () => {
       <Tab.Screen
         name={screenName.Explore}
         component={Explore}
-        options={{ title: I18n.t('explore') }}
+        options={{ title: language.explore }}
       />
       <Tab.Screen
         name={screenName.Search}
         component={Search}
-        options={{ title: I18n.t('search') }}
+        options={{ title: language.search }}
       />
       <Tab.Screen
         name={screenName.Love}
         component={Love}
-        options={{ title: 'Giỏ hàng' }}
+        options={{ title: language.wishList }}
       />
       <Tab.Screen
         name={screenName.User}
         component={User}
-        options={{ title: 'Tài khoản' }}
+        options={{ title: language.user }}
       />
 
     </Tab.Navigator>

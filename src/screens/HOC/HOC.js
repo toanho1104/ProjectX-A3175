@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react'
 import {
-  View, StyleSheet, Text, Modal, SafeAreaView, TouchableOpacity, Dimensions,
+  View, StyleSheet, Text, SafeAreaView, TouchableOpacity, Dimensions,
 } from 'react-native'
-import { colors } from '../assets/styles'
+import { colors } from '../../assets/styles'
 
 const { width, height } = Dimensions.get('window')
 const rate = width / 375
@@ -45,7 +45,7 @@ const A = () => {
 
     <View
       style={{
-        backgroundColor: colors.backgroundSecondary,
+        // backgroundColor: colors.backgroundSecondary,
         width,
         height,
       }}

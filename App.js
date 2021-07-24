@@ -1,14 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
-import { View, Text } from 'react-native'
-import Reactotron from 'reactotron-react-native'
+import { Provider } from 'react-redux'
 import RootRoutes from './src/routes/rootRoutes'
+import store from './src/redux/store'
 
 const App = () => {
-  // console.tron('a')
-  Reactotron.log('hello rendering world')
   return (
-    <RootRoutes />
+    <Provider store={store}>
+      <RootRoutes />
+    </Provider>
   )
 }
 

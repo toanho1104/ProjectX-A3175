@@ -1,18 +1,13 @@
-import HOC from './HOC'
-
-import Explore from './explore'
-import Search from './search'
-import Love from './love'
+import Splash from './splash/splashScreen'
+import Wellcome from './wellcome/wellcomeScreen'
+import Explore from './explore/exploreScreen'
+import Search from './search/searchScreen'
+import Love from './love/loveScreen'
 import User from './user'
 
-// export default {
-//   Explore: HOC(Explore),
-//   Search: HOC(Search),
-//   Love: HOC(Love),
-//   User: HOC(User),
-// }
-
 export {
+  Splash,
+  Wellcome,
   Explore,
   Search,
   Love,

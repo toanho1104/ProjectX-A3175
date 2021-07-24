@@ -2,6 +2,7 @@ import React from 'react'
 import {
   View, Image, Dimensions, SafeAreaView, Text, TouchableOpacity,
 } from 'react-native'
+import { useSelector } from 'react-redux'
 import { colors, fonts } from '../../assets/styles'
 
 import { bottom_tab_data } from '../../configs'
@@ -10,10 +11,19 @@ const { width } = Dimensions.get('window')
 const rate = width / 375
 
 const BottomTabBarCom = ({ state, descriptors, navigation }) => {
+  const theme = useSelector((state) => state.storage.theme)
+
   const focusedOptions = descriptors[state.routes[state.index].key].options
   if (focusedOptions.tabBarVisible === false) {
     return null
   }
+  // React.useEffect(() => {
+  //   console.log('a')
+  //   return () => {
+  //     console.log('lg')
+  //   }
+  // }, [focusedOptions])
+  // console.log(focusedOptions)
   return (
     <SafeAreaView>
       <View style={{
@@ -31,7 +41,7 @@ const BottomTabBarCom = ({ state, descriptors, navigation }) => {
       />
       <View style={{
         flexDirection: 'row',
-        backgroundColor: colors.backgroundPrimary,
+        backgroundColor: theme.backgroundPrimary,
         justifyContent: 'space-around',
         alignItems: 'center',
         width,
@@ -64,6 +74,7 @@ const BottomTabBarCom = ({ state, descriptors, navigation }) => {
 
           return (
             <TouchableOpacity
+              // activeOpacity={0.1}
               onPress={onPress}
               key={`tabbar-${route.key}`}
               style={{
@@ -76,13 +87,13 @@ const BottomTabBarCom = ({ state, descriptors, navigation }) => {
                   width: 25,
                   height: 25,
                   marginBottom: 4,
-                  tintColor: isFocused ? colors.primary : colors.iconPrimary,
+                  tintColor: isFocused ? theme.primary : theme.iconPrimary,
                 }}
                 resizeMode="contain"
               />
               {isFocused && <Text
                 style={{
-                  color: colors.primary,
+                  color: theme.primary,
                   ...fonts.Bold,
                 }}
               >

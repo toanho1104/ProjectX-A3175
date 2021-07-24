@@ -12,6 +12,11 @@ target 'ProjectX' do
     :hermes_enabled => false
   )
 
+
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
   target 'ProjectXTests' do
     inherit! :complete
     # Pods for testing

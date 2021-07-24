@@ -2,29 +2,40 @@ import React, { useState, useEffect } from 'react'
 import {
   View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image,
 } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../../assets/styles'
-import I18n from '../../languages'
+import { languesActions } from '../../redux/actions'
+// import I18n from '../../languages'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const Explore = () => {
+  useEffect(() => {
+    console.log('explore')
+  }, [])
+  const dispatch = useDispatch()
+  const chanlangEN = () => {
+    // dispatch(langguesActions.chanlanggues({
+    //   id: 'en',
+    // }), () => { })
+  }
+  const vi = () => {
+    // dispatch(langguesActions.chanlanggues({
+    //   id: 'vi',
+    // }), () => { })
+  }
+
   return (
     <View style={styles.container}>
-      <Text>{I18n.t('explore')}</Text>
-      <Text>Explore</Text>
       <Text>Explore</Text>
       <Text>Explore</Text>
       <TouchableOpacity
-        onPress={() => {
-          I18n.locale = 'vi'
-        }}
+        onPress={chanlangEN}
       >
         <Text>vn</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => {
-          I18n.locale = 'en'
-        }}
+        onPress={vi}
       >
         <Text>eng</Text>
       </TouchableOpacity>
@@ -38,6 +49,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: colors.backgroundPrimary,
+    // backgroundColor: colors.backgroundPrimary,
   },
 })

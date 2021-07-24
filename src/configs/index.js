@@ -1,6 +1,8 @@
 import { icons } from '../assets/icons'
 
 export const screenName = {
+  Splash: 'Splash',
+  Wellcome: 'Wellcome',
   Explore: 'Explore',
   Search: 'Search',
   Love: 'Love',
