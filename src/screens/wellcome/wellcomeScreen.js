@@ -15,6 +15,7 @@ import BotViewButton from './botViewButton'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const WellcomeScreen = () => {
+  const theme = useSelector((state) => state.storage.theme)
   const backAction = () => {
     Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
@@ -34,12 +35,40 @@ const WellcomeScreen = () => {
   }, [])
 
   return (
-    <View style={{ flex: 1 }}>
-      <Swiper style={styles.wrapper} loop={false} scrollEnabled>
+    <View style={{ flex: 1, backgroundColor: theme.backgroundPrimary }}>
+      {/* <Swiper
+        style={{ backgroundColor: theme.backgroundPrimary }}
+        loop={false}
+        scrollEnabled
+        dot={
+          <View style={{
+            backgroundColor: '#757575',
+            width: 8,
+            height: 8,
+            borderRadius: 4,
+            marginLeft: 3,
+            marginRight: 3,
+            marginTop: 3,
+            marginBottom: 3,
+          }}
+          />
+        }
+        activeDot={<View style={{
+          backgroundColor: '#19227C',
+          width: 8,
+          height: 8,
+          borderRadius: 4,
+          marginLeft: 3,
+          marginRight: 3,
+          marginTop: 3,
+          marginBottom: 3,
+        }}
+        />}
+      >
         <Slide1 />
         <Slide2 />
         <Slide3 />
-      </Swiper>
+      </Swiper> */}
       <BotViewButton />
 
     </View>
@@ -48,9 +77,6 @@ const WellcomeScreen = () => {
 
 export default WellcomeScreen
 const styles = StyleSheet.create({
-  wrapper: {},
-  botView: {
-    height: 50 * rate,
-    flexDirection: 'row',
+  wrapper: {
   },
 })

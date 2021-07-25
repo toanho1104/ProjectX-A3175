@@ -6,12 +6,14 @@ import { useSelector } from 'react-redux'
 
 const BackGroundCom = ({ children, style }) => {
   const theme = useSelector((state) => state.storage.theme)
+  console.log(theme)
   return (
     <View style={[styles.container, style, { backgroundColor: theme.backgroundPrimary }]}>
       <StatusBar
-        backgroundColor={theme.backgroundPrimary}
-        barStyle="dark-content"
+        backgroundColor={theme?.backgroundPrimary}
+        barStyle={theme.darkMode ? 'light-content' : 'dark-content'}
       />
+
       <SafeAreaView />
       {children}
     </View>

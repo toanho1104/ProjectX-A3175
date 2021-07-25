@@ -7,6 +7,8 @@ import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { fonts, textStyles } from '../../assets/styles'
 import { TextCom } from '../../components'
+import { NavigationHelpers } from '../../utils'
+import { screenName } from '../../configs'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
@@ -14,9 +16,15 @@ const BotViewButton = () => {
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
   console.log('deng nhap')
+  const handlerToHome = () => {
+    NavigationHelpers.navigateToScreen(screenName.LoginScreen)
+  }
   return (
     <View style={[styles.container, { backgroundColor: theme.primary }]}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handlerToHome}
+      >
         <TextCom textOnPrimary buttonTextBold>
           {language.browse}
         </TextCom>

@@ -10,7 +10,7 @@ import { screenName } from '../../configs'
 import { languesActions, themeActions } from '../../redux/actions'
 import { isEmptyObject } from '../../common'
 import { images } from '../../assets/images'
-import { BackGroundView } from '../../components/index'
+import { BackGroundView, TextCom } from '../../components/index'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
@@ -51,7 +51,11 @@ const Splash = ({ navigation }) => {
         />
       </View>
       <View style={styles.botView}>
-        <Text style={styles.waiting}>{language.waiting}</Text>
+        <TextCom
+          textPrimary
+        >
+          {language.waiting}
+        </TextCom>
       </View>
     </BackGroundView>
   )

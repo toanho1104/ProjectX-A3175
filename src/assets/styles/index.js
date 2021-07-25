@@ -23,6 +23,7 @@ import { Dimensions } from 'react-native'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 export const lightColors = {
+  darkMode: false,
   primaryDark: '#00004F',
   primary: '#19227C',
   primaryLight: '#524AAC',
@@ -30,7 +31,6 @@ export const lightColors = {
   secondaryDark: '#C8B900',
   secondary: '#FFEB3B',
   secondaryLight: '#FFFF72',
-
   textPrimary: '#000000',
   textSecondary: '#757575',
   textOnPrimary: '#ffffff',
@@ -43,16 +43,17 @@ export const lightColors = {
 
 }
 export const darkColors = {
+  darkMode: true,
   primaryDark: '#00004F',
-  primary: '#ffffff',
+  primary: '#24211a',
   primaryLight: '#524AAC',
 
   secondaryDark: '#C8B900',
   secondary: '#FFEB3B',
   secondaryLight: '#FFFF72',
 
-  textDark: '#000000',
-  textLight: '#757575',
+  textPrimary: '#ffffff',
+  textSecondary: '#757575',
   textOnPrimary: '#ffffff',
   textOnSecondary: '#000000',
 
@@ -122,19 +123,19 @@ export const textStyles = {
 
   contenTextBold: {
     ...fonts.bold,
-    fontSize: 14,
+    fontSize: 15,
   },
   contenTextRegular: {
     ...fonts.regular,
-    fontSize: 14,
+    fontSize: 15,
   },
   contenTextItalic: {
     ...fonts.italic,
-    fontSize: 14,
+    fontSize: 15,
   },
   textInput: {
     ...fonts.regular,
-    fontSize: 16,
+    fontSize: 15,
     // lineHeight: 1.2,
   },
   textBottomTab: {

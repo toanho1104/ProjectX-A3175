@@ -1,4 +1,5 @@
 export default {
+  hello: 'Hello ',
   waiting: 'waiting a minute...',
   browse: 'Browse',
   login: 'Login',
@@ -6,8 +7,14 @@ export default {
   search: 'Search',
   wishList: 'Wishlist',
   user: 'User',
+  slide1Content1: 'This is an app in beta',
+  slide1Content3: 'Swipe left to continue',
   slide3Title: 'Sign in to unlock',
   slide3Content1: 'Join the course for free',
   slide3Content2: 'JKeep track of registered courses',
-
+  language: 'Language',
+  languageHonder: 'Select language',
+  vietnamese: 'Vietnamese',
+  English: 'English',
+  darkMode: 'Dark Mode',
 }

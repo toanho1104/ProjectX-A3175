@@ -11,9 +11,23 @@ const Stack = createStackNavigator()
 
 const RootRoutes = () => {
   return (
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer
+      ref={navigationRef}
+
+    >
       <Stack.Navigator
-        screenOptions={{ headerShown: false }}
+        animationEnabled
+        screenOptions={{
+
+          headerShown: true,
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+
+        }}
+        headerMode="float"
+        animation="auto"
+        animationEnabled="false"
+
       >
         <Stack.Screen name={screenName.Splash} component={Splash} />
         <Stack.Screen name={screenName.Wellcome} component={Wellcome} />

@@ -6,6 +6,7 @@ import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import LottieView from 'lottie-react-native'
+import * as Animatable from 'react-native-animatable'
 import { BackGroundView, TextCom } from '../../components/index'
 import { images } from '../../assets/images'
 import { icons } from '../../assets/icons'
@@ -14,6 +15,8 @@ const { width } = Dimensions.get('window')
 const rate = width / 375
 const Slide3 = () => {
   console.log('Slide3')
+  const language = useSelector((state) => state.storage.language)
+  console.log(language)
   return (
     <BackGroundView>
       <View style={styles.imageView}>
@@ -26,25 +29,39 @@ const Slide3 = () => {
       </View>
       <TextCom
         headingMedium
+        textPrimary
       >
-        Tạo tài khoản đăng nhập để mở khóa đầy đủ tính năng của ứng dụng
+        {language.slide3Title}
       </TextCom>
+      <View style={{ height: 30 * rate }} />
       <ViewConten
         icon={icons.check}
-        text="xin choa"
+        text={language.slide3Content1}
+      />
+      <ViewConten
+        icon={icons.check}
+        text={language.slide3Content2}
       />
     </BackGroundView>
   )
 }
 const ViewConten = ({ icon, text }) => {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      width: 300 * rate,
+      marginTop: 20 * rate,
+    }}
+    >
       <FastImage
         source={icon}
-        style={{ width: 30, height: 30 }}
+        style={{ width: 25 * rate, height: 25 * rate }}
       />
       <TextCom
+        style={{ marginLeft: 10 * rate }}
         headingSmall
+        textPrimary
       >
         {text}
       </TextCom>
