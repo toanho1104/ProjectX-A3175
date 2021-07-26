@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import storage from './storage'
+import categories from './category'
 
 const appReducer = combineReducers({
   storage,
+  categories,
 
 })
 

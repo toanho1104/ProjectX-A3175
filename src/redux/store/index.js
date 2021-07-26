@@ -6,7 +6,7 @@ import createSagaMiddleware from 'redux-saga'
 // import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 import rootReducer from '../reducers'
 import Reactotron from '../../configs/ReactotronConfig'
-// import rootSaga from '../sagas'
+import rootSaga from '../sagas'
 
 const persistConfig = {
   key: 'root',
@@ -22,7 +22,7 @@ const store = createStore(persistedReducer, composeEnhancers(
   Reactotron.createEnhancer(),
   applyMiddleware(sagaMiddleware)
 ))
-// sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga)
 // persistStore(store).purge()
 persistStore(store)
 export default store

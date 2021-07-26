@@ -12,19 +12,18 @@ const initState = {
 const storageReducer = (state = initState, action) => {
   switch (action.type) {
     case languageTypes.CHANGE_LANGUAGES:
-      console.log(action?.payload?.data.id)
-      if (action?.payload?.data.id === 'en') {
+      if (action?.payload?.data.val === 'en') {
         return { ...state, language: en }
       }
-      if (action?.payload?.data.id === 'vi') {
+      if (action?.payload?.data.val === 'vi') {
         return { ...state, language: vi }
       }
       return state
     case themeTypes.CHANGE_THEMES:
-      if (action?.payload?.data.id === 'dark') {
+      if (action?.payload?.data.val === 'dark') {
         return { ...state, theme: darkColors }
       }
-      if (action?.payload?.data.id === 'light') {
+      if (action?.payload?.data.val === 'light') {
         return { ...state, theme: lightColors }
       }
       return state

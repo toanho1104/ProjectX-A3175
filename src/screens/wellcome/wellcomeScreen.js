@@ -16,27 +16,27 @@ const { width } = Dimensions.get('window')
 const rate = width / 375
 const WellcomeScreen = () => {
   const theme = useSelector((state) => state.storage.theme)
-  const backAction = () => {
-    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
-      {
-        text: 'Cancel',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      { text: 'YES', onPress: () => BackHandler.exitApp() },
-    ])
-    return true
-  }
+  // const backAction = () => {
+  //   Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+  //     {
+  //       text: 'Cancel',
+  //       onPress: () => null,
+  //       style: 'cancel',
+  //     },
+  //     { text: 'YES', onPress: () => BackHandler.exitApp() },
+  //   ])
+  //   return true
+  // }
 
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', backAction)
+  // useEffect(() => {
+  //   BackHandler.addEventListener('hardwareBackPress', backAction)
 
-    return () => BackHandler.removeEventListener('hardwareBackPress', backAction)
-  }, [])
+  //   return () => BackHandler.removeEventListener('hardwareBackPress', backAction)
+  // }, [])
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.backgroundPrimary }}>
-      {/* <Swiper
+      <Swiper
         style={{ backgroundColor: theme.backgroundPrimary }}
         loop={false}
         scrollEnabled
@@ -68,7 +68,7 @@ const WellcomeScreen = () => {
         <Slide1 />
         <Slide2 />
         <Slide3 />
-      </Swiper> */}
+      </Swiper>
       <BotViewButton />
 
     </View>

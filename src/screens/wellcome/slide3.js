@@ -16,7 +16,6 @@ const rate = width / 375
 const Slide3 = () => {
   console.log('Slide3')
   const language = useSelector((state) => state.storage.language)
-  console.log(language)
   return (
     <BackGroundView>
       <View style={styles.imageView}>

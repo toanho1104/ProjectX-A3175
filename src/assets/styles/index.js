@@ -45,19 +45,19 @@ export const lightColors = {
 export const darkColors = {
   darkMode: true,
   primaryDark: '#00004F',
-  primary: '#24211a',
+  primary: '#ffffff',
   primaryLight: '#524AAC',
 
   secondaryDark: '#C8B900',
-  secondary: '#FFEB3B',
+  secondary: '#24211a',
   secondaryLight: '#FFFF72',
 
   textPrimary: '#ffffff',
-  textSecondary: '#757575',
+  textSecondary: '#ffffff',
   textOnPrimary: '#ffffff',
-  textOnSecondary: '#000000',
+  textOnSecondary: '#ffffff',
 
-  iconPrimary: '#60727d',
+  iconPrimary: '#6e86c4',
 
   backgroundPrimary: '#000000',
   backgroundSecondary: '#E5E5E5',

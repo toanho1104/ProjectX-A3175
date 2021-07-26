@@ -21,19 +21,11 @@ const Slide1 = () => {
   const language = useSelector((state) => state.storage.language)
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState(null)
-  const [items, setItems] = useState([
-    { label: language.vietnamese, value: 'vi' },
-    { label: language.English, value: 'en' },
-  ])
-  useEffect(() => {
-
-  }, [])
 
   const changeLangues = (val) => {
     dispatch(languesActions.changeLangues({
-      id: val,
+      val,
     }))
-    console.log('value', val)
   }
   return (
     <BackGroundView>
@@ -96,7 +88,6 @@ const Slide1 = () => {
           ]}
           setOpen={setOpen}
           setValue={setValue}
-          setItems={setItems}
           onChangeValue={(val) => {
             changeLangues(val)
           }}

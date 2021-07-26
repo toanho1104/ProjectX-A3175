@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {
-  View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image,
+  View, Dimensions, StyleSheet,
 } from 'react-native'
-import Reactotron from 'reactotron-react-native'
+
 import { useDispatch, useSelector } from 'react-redux'
 import LottieView from 'lottie-react-native'
 import { NavigationHelpers } from '../../utils'
 import { screenName } from '../../configs'
-import { languesActions, themeActions } from '../../redux/actions'
+import { categoryActions, languesActions, themeActions } from '../../redux/actions'
 import { isEmptyObject } from '../../common'
 import { images } from '../../assets/images'
 import { BackGroundView, TextCom } from '../../components/index'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const Splash = ({ navigation }) => {
+const Splash = () => {
   const dispatch = useDispatch()
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
@@ -24,19 +24,21 @@ const Splash = ({ navigation }) => {
     if (persist.rehydrated) {
       if (isEmptyObject(language)) {
         dispatch(languesActions.changeLangues({
-          id: 'vi',
+          val: 'vi',
         }))
       }
       if (isEmptyObject(theme)) {
         dispatch(themeActions.changeThemes({
-          id: 'light',
+          val: 'light',
         }))
       }
+      // console.log('category')
+      // dispatch(categoryActions.getCategoryCouser({}))
     }
 
     setTimeout(() => {
-      NavigationHelpers.navigateToScreen(screenName.Wellcome)
-    }, 3000)
+      NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
+    }, 4000)
   }, [persist.rehydrated])
 
   return (

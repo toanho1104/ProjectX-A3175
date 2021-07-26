@@ -22,11 +22,11 @@ const Slide2 = () => {
   useEffect(() => {
     if (isEnabled) {
       dispatch(themeActions.changeThemes({
-        id: 'dark',
+        val: 'dark',
       }))
     } else {
       dispatch(themeActions.changeThemes({
-        id: 'light',
+        val: 'light',
       }))
     }
   }, [isEnabled])

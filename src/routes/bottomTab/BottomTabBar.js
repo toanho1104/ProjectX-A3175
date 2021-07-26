@@ -94,6 +94,7 @@ const BottomTabBarCom = ({ state, descriptors, navigation }) => {
               />
               {isFocused && <TextCom
                 textBottomTab
+                style={{ color: theme.primary }}
               >
                 {label}
               </TextCom>}

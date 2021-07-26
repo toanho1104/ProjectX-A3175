@@ -5,6 +5,7 @@ import {
 import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import { BackGroundView } from '../../../components'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
@@ -27,9 +28,9 @@ const LoginScreen = () => {
   //   return () => BackHandler.removeEventListener('hardwareBackPress', backAction)
   // }, [])
   return (
-    <View style={styles.container}>
+    <BackGroundView style={styles.container}>
       <Text>login</Text>
-    </View>
+    </BackGroundView>
   )
 }
 

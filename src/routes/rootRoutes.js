@@ -1,6 +1,7 @@
 import React from 'react'
+import { View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator, CardStyleInterpolators, TransitionPresets } from '@react-navigation/stack'
 import { navigationRef } from '../utils/NavigationHelpers'
 import { screenName } from '../configs'
 import BottomTabBarRoute from './bottomTab/BottomTabBarRoutes'
@@ -16,17 +17,37 @@ const RootRoutes = () => {
 
     >
       <Stack.Navigator
-        animationEnabled
+        // mode="modal"
         screenOptions={{
+          // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          headerShown: false,
+          // gestureEnabled: true,
+          // gestureDirection: 'horizontal',
+          // ...TransitionPresets.RevealFromBottomAndroid,
 
-          headerShown: true,
-          gestureEnabled: true,
-          gestureDirection: 'horizontal',
+          // swipeEnabled: false,
+          // animationEnabled: false,
+          // lazy: false,
+
+          cardStyle: { backgroundColor: 'transparent' },
+          cardStyleInterpolator: ({ current: { progress } }) => ({
+            cardStyle: {
+              opacity: progress.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 1],
+              }),
+            },
+            overlayStyle: {
+              opacity: progress.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 0.5],
+                extrapolate: 'clamp',
+              }),
+            },
+          }),
 
         }}
-        headerMode="float"
-        animation="auto"
-        animationEnabled="false"
 
       >
         <Stack.Screen name={screenName.Splash} component={Splash} />

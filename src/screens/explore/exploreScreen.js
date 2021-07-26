@@ -3,7 +3,10 @@ import {
   View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image,
 } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import Reactotron from 'reactotron-react-native'
 import { colors } from '../../assets/styles'
+import { BackGroundView, SearchFieldCom } from '../../components'
 import { screenName } from '../../configs'
 import { languesActions } from '../../redux/actions'
 import { NavigationHelpers } from '../../utils'
@@ -14,43 +17,22 @@ const { width } = Dimensions.get('window')
 const rate = width / 375
 const Explore = () => {
   useEffect(() => {
-    console.log('explore')
+    console.log('ex')
+    axios.get('http://192.168.1.17:8000/api/courseCategory/')
+      .then((response) => Reactotron.log(response))
+      .catch((err) => console.log(err))
   }, [])
   const dispatch = useDispatch()
-  const chanlangEN = () => {
-    dispatch(languesActions.changeLangues({
-      id: 'en',
-    }))
-  }
-  const vi = () => {
-    dispatch(languesActions.changeLangues({
-      id: 'vi',
-    }))
-  }
-  const login = () => {
-    NavigationHelpers.navigateToScreen(screenName.LoginScreen)
-  }
-
+  const [value, setValue] = useState('')
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={login}
-      >
-        <Text>login</Text>
-      </TouchableOpacity>
-
-      <Text>Explore</Text>
-      <TouchableOpacity
-        onPress={chanlangEN}
-      >
-        <Text>vn</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={vi}
-      >
-        <Text>eng</Text>
-      </TouchableOpacity>
-    </View>
+    <BackGroundView style={styles.container}>
+      <SearchFieldCom
+        value={value}
+        onChangeText={(val) => setValue(val)}
+        handlerClearString={(val) => setValue(val)}
+        returnKeyType="search"
+      />
+    </BackGroundView>
   )
 }
 
@@ -60,6 +42,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    // backgroundColor: colors.backgroundPrimary,
   },
 })

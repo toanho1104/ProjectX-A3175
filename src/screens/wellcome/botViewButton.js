@@ -15,22 +15,22 @@ const rate = width / 375
 const BotViewButton = () => {
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
-  console.log('deng nhap')
+  console.log('buton login')
   const handlerToHome = () => {
-    NavigationHelpers.navigateToScreen(screenName.LoginScreen)
+    NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
   }
   return (
-    <View style={[styles.container, { backgroundColor: theme.primary }]}>
+    <View style={[styles.container, { backgroundColor: theme.secondary }]}>
       <TouchableOpacity
         style={styles.button}
         onPress={handlerToHome}
       >
-        <TextCom textOnPrimary buttonTextBold>
+        <TextCom textOnSecondary buttonTextBold>
           {language.browse}
         </TextCom>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
-        <TextCom textOnPrimary buttonTextBold>
+        <TextCom textOnSecondary buttonTextBold>
           {language.login}
         </TextCom>
       </TouchableOpacity>
