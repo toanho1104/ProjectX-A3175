@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import LottieView from 'lottie-react-native'
 import { NavigationHelpers } from '../../utils'
 import { screenName } from '../../configs'
-import { categoryActions, languesActions, themeActions } from '../../redux/actions'
+import {
+  categoryActions, courseActions, languesActions, themeActions,
+} from '../../redux/actions'
 import { isEmptyObject } from '../../common'
 import { images } from '../../assets/images'
 import { BackGroundView, TextCom } from '../../components/index'
@@ -32,8 +34,15 @@ const Splash = () => {
           val: 'light',
         }))
       }
-      // console.log('category')
-      // dispatch(categoryActions.getCategoryCouser({}))
+      dispatch(categoryActions.getCategoryCourse({
+
+      }, (responseCategory) => {
+        if (responseCategory.success) {
+          dispatch(courseActions.getCourse({
+
+          }, () => { }))
+        }
+      }))
     }
 
     setTimeout(() => {

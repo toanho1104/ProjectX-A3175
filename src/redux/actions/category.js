@@ -1,10 +1,8 @@
 import { categoryTypes } from '../types'
 
-export const getCategoryCouser = (data, callback) => {
-  console.log('acction')
+export const getCategoryCourse = (data, callback) => {
   return {
-
-    type: categoryTypes.GET_COUSER_CATEGORY,
+    type: categoryTypes.GET_COURSE_CATEGORY,
     payload: { data, callback },
   }
 }

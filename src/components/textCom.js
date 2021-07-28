@@ -8,7 +8,7 @@ const TextCom = ({
   children, headingLarge, headingMedium, headingSmall, textInput,
   linkTextBold, linkTextNomarl, buttonTextBold, buttonTextNomarl,
   contenTextBold, contenTextRegular, contenTextItalic, textPrimary,
-  textSecondary, textOnPrimary, textOnSecondary, textBottomTab, style,
+  textSecondary, textOnPrimary, textOnSecondary, textBottomTab, style, ...props
 }) => {
   const theme = useSelector((state) => state.storage.theme)
   return (
@@ -34,6 +34,7 @@ const TextCom = ({
         textBottomTab && { color: theme.primary, ...textStyles.textBottomTab },
         style,
       ]}
+      {...props}
     >
       {children}
     </Text>

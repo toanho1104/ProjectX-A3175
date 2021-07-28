@@ -48,12 +48,10 @@ export default SearchFieldCom
 
 const styles = StyleSheet.create({
   container: {
-    // borderWidth: 1,
     width: 345 * rate,
     height: 50 * rate,
     marginVertical: 10 * rate,
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -70,7 +68,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   viewRight: {
-    // borderWidth: 1,
     marginLeft: 10,
   },
 })

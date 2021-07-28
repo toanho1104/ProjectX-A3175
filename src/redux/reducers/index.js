@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import storage from './storage'
 import categories from './category'
+import courses from './course'
 
 const appReducer = combineReducers({
   storage,
   categories,
+  courses,
 
 })
 

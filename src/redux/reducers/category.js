@@ -6,7 +6,7 @@ const initState = {
 
 const categoryReducer = (state = initState, action) => {
   switch (action.type) {
-    case categoryTypes.GET_COUSER_CATEGORY_SUCCESS:
+    case categoryTypes.GET_COURSE_CATEGORY_SUCCESS:
       return { ...state, courseCategoryList: [...action.payload.data] }
 
     default:

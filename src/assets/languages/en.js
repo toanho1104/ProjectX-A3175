@@ -17,4 +17,5 @@ export default {
   vietnamese: 'Vietnamese',
   English: 'English',
   darkMode: 'Dark Mode',
+  searchPlaceholder: 'What do you want to search?',
 }

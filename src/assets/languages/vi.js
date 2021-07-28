@@ -17,4 +17,5 @@ export default {
   vietnamese: 'Việt Nam',
   English: 'Anh',
   darkMode: 'Chế độ ban đêm',
+  searchPlaceholder: 'Bạn muốn tìm gì?',
 }

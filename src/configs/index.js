@@ -29,4 +29,4 @@ export const bottom_tab_data = [
     image: icons.user,
   },
 ]
-export const API_URL = 'http://localhost:8000/api/courseCategory'
+export const API_URL = 'http://192.168.1.17:8000/api'

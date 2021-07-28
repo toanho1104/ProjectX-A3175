@@ -6,13 +6,14 @@ import { useSelector } from 'react-redux'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const IconCom = ({ source, style }) => {
+const IconCom = ({ source, style, ...props }) => {
   const theme = useSelector((state) => state.storage.theme)
   return (
     <FastImage
       source={source}
       style={[styles.container, style]}
       tintColor={theme.iconPrimary}
+      {...props}
     />
   )
 }
