@@ -18,4 +18,8 @@ export default {
   English: 'Anh',
   darkMode: 'Chế độ ban đêm',
   searchPlaceholder: 'Bạn muốn tìm gì?',
+  category: 'Danh mục khóa học',
+  seeMore: 'Xem thêm >>',
+  newCourse: 'Khóa học mới',
+
 }

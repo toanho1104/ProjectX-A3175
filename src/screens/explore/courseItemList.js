@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { IconCom, TextCom } from '../../components'
 import { icons } from '../../assets/icons'
 import { dateFormat } from '../../common'
+import { NavigationHelpers } from '../../utils'
+import { screenName } from '../../configs'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
@@ -18,7 +20,6 @@ const CoureItemList = ({ item }) => {
   } = item
 
   const renderStar = (num) => {
-    console.log(typeof num)
     const starArr = []
     const dec = num % 1
     const int = Math.floor(num)
@@ -44,14 +45,22 @@ const CoureItemList = ({ item }) => {
       </View>
     )
   }
+
+  const handleToCourseDetails = () => {
+    NavigationHelpers.navigateToScreen(screenName.CourseDetailsScreen)
+  }
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={handleToCourseDetails}
+      style={styles.container}
+    >
       <FastImage
         source={{ uri: posterUrl }}
         style={styles.image}
         resizeMode={FastImage.resizeMode.cover}
       />
       <TextCom
+        textPrimary
         headingSmall
         numberOfLines={2}
         style={styles.titleText}
@@ -64,21 +73,22 @@ const CoureItemList = ({ item }) => {
         <View style={{ flexDirection: 'row' }}>
           {renderStar(rating)}
         </View>
-        <TextCom style={{ marginLeft: 5 }}>
+        <TextCom
+          textPrimary
+          style={{ marginLeft: 5 }}
+        >
           {rating}
         </TextCom>
       </View>
 
-      <View style={{
-        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', alignSelf: 'flex-start',
-      }}
-      >
-        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+      <View style={styles.authorContentViewCon}>
+        <View style={styles.authorContentView}>
           <FastImage
             source={{ uri: avatarUrl }}
             style={styles.avatar}
           />
           <TextCom
+            textPrimary
             contenTextRegular
             style={styles.titleText}
           >
@@ -87,26 +97,23 @@ const CoureItemList = ({ item }) => {
         </View>
 
         <TextCom
-          style={{ opacity: 0.4 }}
+          style={{ opacity: 0.3 }}
           contenTextItalic
+          textPrimary
         >
           {dateFormat(createdAt)}
         </TextCom>
       </View>
 
-      <View style={{
-        alignSelf: 'flex-start', marginTop: 5, padding: 7, backgroundColor: '#FFEB3B', borderRadius: 10,
-      }}
-      >
+      <View style={styles.statusView}>
         <TextCom
-          style={{}}
-          textPrimary
+          textOnSecondary
           contenTextBold
         >
           Free
         </TextCom>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -115,7 +122,6 @@ export default CoureItemList
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    // borderWidth: 1,
     marginLeft: (width - 345 * rate) / 2,
     width: 230 * rate,
   },
@@ -125,8 +131,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   avatar: {
-    width: 25 * rate,
-    height: 25 * rate,
+    width: 22 * rate,
+    height: 22 * rate,
     borderRadius: 20,
     marginRight: 5,
   },
@@ -137,5 +143,24 @@ const styles = StyleSheet.create({
   starView: {
     flexDirection: 'row',
     alignSelf: 'flex-start',
+  },
+  authorContentViewCon: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    alignSelf: 'flex-start',
+  },
+  authorContentView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  statusView: {
+    alignSelf: 'flex-start',
+    marginTop: 5,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    backgroundColor: '#FFEB3B',
+    borderRadius: 10,
   },
 })

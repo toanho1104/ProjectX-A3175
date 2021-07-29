@@ -13,6 +13,7 @@ import { NavigationHelpers } from '../../utils'
 import { chunk } from '../../common'
 import CourseCategoryList from './courseCategoryList'
 import CoureItemList from './courseItemList'
+import HeaderTitle from './headerTitle'
 
 // import I18n from '../../languages'
 
@@ -29,55 +30,68 @@ const Explore = () => {
 
   return (
     <BackGroundView style={styles.container}>
-
-      <SearchFieldCom
-        string={value}
-        value={value}
-        onChangeText={(val) => setValue(val)}
-        handlerClearString={(val) => setValue(val)}
-        returnKeyType="search"
-        placeholder={language?.searchPlaceholder}
-      />
-
-      <TextCom
-        style={styles.textTitle}
-        textPrimary
-        headingSmall
-      >
-        danh muc san pham
-      </TextCom>
-
-      <View style={styles.categoriesView}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={{ width, boderWidth: 1 }}
-        >
-          <View>
-            <CourseCategoryList data={category} odd />
-            <CourseCategoryList data={category} />
-          </View>
-        </ScrollView>
-      </View>
-
-      <View style={{ height: 280 * rate }}>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={course}
-          extraData={course}
-          keyExtractor={(item) => `courseList${item.id}`}
-          // bounces={false}
-          snapToAlignment="start"
-          snapToInterval={245 * rate}
-          decelerationRate="fast"
-          renderItem={({ item, index }) => {
-            return (
-              <CoureItemList item={item} />
-            )
-          }}
+      <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+        <SearchFieldCom
+          string={value}
+          value={value}
+          onChangeText={(val) => setValue(val)}
+          handlerClearString={(val) => setValue(val)}
+          returnKeyType="search"
+          placeholder={language?.searchPlaceholder}
         />
-      </View>
+        <HeaderTitle text={language.category} />
+
+        <View style={styles.categoriesView}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ width, boderWidth: 1 }}
+          >
+            <View>
+              <CourseCategoryList data={category} odd />
+              <CourseCategoryList data={category} />
+            </View>
+          </ScrollView>
+        </View>
+        <HeaderTitle text={language.newCourse} />
+        <View style={{ height: 280 * rate }}>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={course}
+            extraData={course}
+            keyExtractor={(item) => `courseList${item.id}`}
+            // bounces={false}
+            snapToAlignment="start"
+            snapToInterval={245 * rate}
+            decelerationRate="fast"
+            renderItem={({ item, index }) => {
+              return (
+                <CoureItemList item={item} />
+              )
+            }}
+          />
+        </View>
+        <HeaderTitle text={language.newCourse} />
+        <View style={{ height: 280 * rate }}>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={course}
+            extraData={course}
+            keyExtractor={(item) => `courseList${item.id}`}
+            // bounces={false}
+            snapToAlignment="start"
+            snapToInterval={245 * rate}
+            decelerationRate="fast"
+            renderItem={({ item, index }) => {
+              return (
+                <CoureItemList item={item} />
+              )
+            }}
+          />
+        </View>
+      </ScrollView>
     </BackGroundView>
   )
 }
@@ -89,9 +103,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  textTitle: {
-    width: 345 * rate,
-  },
+  scrollView: { flexGrow: 1 },
+
   categoriesView: {
     height: 105 * rate,
   },

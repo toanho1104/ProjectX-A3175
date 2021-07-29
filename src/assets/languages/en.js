@@ -18,4 +18,7 @@ export default {
   English: 'English',
   darkMode: 'Dark Mode',
   searchPlaceholder: 'What do you want to search?',
+  category: 'Categories',
+  seeMore: 'see more >>',
+  newCourse: 'newCourse',
 }

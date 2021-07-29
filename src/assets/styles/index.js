@@ -90,7 +90,7 @@ export const textStyles = {
   },
   headingMedium: {
     ...fonts.bold,
-    fontSize: 24,
+    fontSize: 22,
     // lineHeight: 1.2,
   },
   headingSmall: {
@@ -112,26 +112,26 @@ export const textStyles = {
 
   buttonTextBold: {
     ...fonts.bold,
-    fontSize: 15 * rate,
+    fontSize: 16 * rate,
     // lineHeight: 1.2,
   },
   buttonTextNomarl: {
     ...fonts.regular,
-    fontSize: 15 * rate,
+    fontSize: 16 * rate,
     // lineHeight: 1.2,
   },
 
   contenTextBold: {
     ...fonts.bold,
-    fontSize: 15,
+    fontSize: 16,
   },
   contenTextRegular: {
     ...fonts.regular,
-    fontSize: 15,
+    fontSize: 16,
   },
   contenTextItalic: {
     ...fonts.italic,
-    fontSize: 15,
+    fontSize: 14,
   },
   textInput: {
     ...fonts.regular,

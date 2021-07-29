@@ -16,7 +16,7 @@ const CourseCategoryList = ({ data, odd }) => {
         ? data.map((item, index) => {
           if (item.id % 2 !== 0) {
             return (
-              <Item item={item} key={index} index={index} />
+              <Item item={item} key={item.id} index={index} />
 
             )
           }
@@ -24,7 +24,7 @@ const CourseCategoryList = ({ data, odd }) => {
         : data.map((item, index) => {
           if (item.id % 2 === 0) {
             return (
-              <Item item={item} key={index} index={index} />
+              <Item item={item} key={item.id} index={index} />
             )
           }
         })}

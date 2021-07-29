@@ -8,6 +8,7 @@ export const screenName = {
   Search: 'Search',
   Love: 'Love',
   User: 'User',
+  CourseDetailsScreen: 'CourseDetailsScreen',
   BottomTabBarRoute: 'BottomTabBarRoute',
 }
 
