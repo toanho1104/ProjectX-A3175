@@ -10,4 +10,5 @@ export const icons = {
   star: require('./star.png'),
   starFill: require('./starFill.png'),
   starHalf: require('./starHalf.png'),
+  back: require('./back.png'),
 }

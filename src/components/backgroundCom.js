@@ -4,11 +4,14 @@ import {
 } from 'react-native'
 import { useSelector } from 'react-redux'
 
-const BackGroundCom = ({ children, style }) => {
+const BackGroundCom = ({ children, style, ...props }) => {
   const theme = useSelector((state) => state.storage.theme)
 
   return (
-    <View style={[styles.container, style, { backgroundColor: theme.backgroundPrimary }]}>
+    <View
+      style={[styles.container, style, { backgroundColor: theme.backgroundPrimary }]}
+      {...props}
+    >
       <StatusBar
         backgroundColor={theme?.backgroundPrimary}
         barStyle={theme.darkMode ? 'light-content' : 'dark-content'}

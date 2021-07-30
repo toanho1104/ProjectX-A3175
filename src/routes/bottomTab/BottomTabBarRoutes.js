@@ -14,11 +14,13 @@ const BottomTabBarRoute = () => {
     <Tab.Navigator
       tabBar={(props) => <BottomTabBarCom {...props} />}
       screenOptions={{ headerShown: false }}
+
     >
       <Tab.Screen
         name={screenName.Explore}
         component={Explore}
         options={{ title: language.explore }}
+
       />
       <Tab.Screen
         name={screenName.Search}

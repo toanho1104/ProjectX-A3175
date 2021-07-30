@@ -32,7 +32,7 @@ export const lightColors = {
   secondary: '#FFEB3B',
   secondaryLight: '#FFFF72',
   textPrimary: '#000000',
-  textSecondary: '#757575',
+  textSecondary: '#60727d',
   textOnPrimary: '#ffffff',
   textOnSecondary: '#000000',
 
@@ -85,7 +85,7 @@ export const fonts = {
 export const textStyles = {
   headingLarge: {
     ...fonts.bold,
-    fontSize: 30,
+    fontSize: 24,
     // lineHeight: 1.2,
   },
   headingMedium: {

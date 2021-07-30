@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, CardStyleInterpolators, TransitionPresets } from '@react-navigation/stack'
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
 import { navigationRef } from '../utils/NavigationHelpers'
 import { screenName } from '../configs'
 import BottomTabBarRoute from './bottomTab/BottomTabBarRoutes'
@@ -43,7 +44,7 @@ const RootRoutes = () => {
             overlayStyle: {
               opacity: progress.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 0.5],
+                outputRange: [0, 0.2],
                 extrapolate: 'clamp',
               }),
             },
@@ -53,7 +54,11 @@ const RootRoutes = () => {
 
       >
         <Stack.Screen name={screenName.Splash} component={Splash} />
-        <Stack.Screen name={screenName.Wellcome} component={Wellcome} />
+        <Stack.Screen
+          name={screenName.Wellcome}
+          component={Wellcome}
+
+        />
         <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} />
         <Stack.Screen name={screenName.BottomTabBarRoute} component={BottomTabBarRoute} />
         <Stack.Screen name={screenName.CourseDetailsScreen} component={CourseDetailsScreen} />

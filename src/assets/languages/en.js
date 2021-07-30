@@ -21,4 +21,5 @@ export default {
   category: 'Categories',
   seeMore: 'see more >>',
   newCourse: 'newCourse',
+  courseDetails: 'Course details',
 }

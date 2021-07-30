@@ -21,5 +21,5 @@ export default {
   category: 'Danh mục khóa học',
   seeMore: 'Xem thêm >>',
   newCourse: 'Khóa học mới',
-
+  courseDetails: 'Chi tiết khóa học',
 }

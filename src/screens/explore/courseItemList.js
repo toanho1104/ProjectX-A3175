@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import {
-  View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image,
+  View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image, Animated,
 } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
+
+import { SharedElement } from 'react-navigation-shared-element'
 import { IconCom, TextCom } from '../../components'
 import { icons } from '../../assets/icons'
 import { dateFormat } from '../../common'
@@ -13,7 +15,7 @@ import { screenName } from '../../configs'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const CoureItemList = ({ item }) => {
+const CoureItemList = ({ item, navigation }) => {
   const theme = useSelector((state) => state.storage.theme)
   const {
     name, posterUrl, rating, fullName, avatarUrl, description, createdAt,
@@ -47,18 +49,21 @@ const CoureItemList = ({ item }) => {
   }
 
   const handleToCourseDetails = () => {
-    NavigationHelpers.navigateToScreen(screenName.CourseDetailsScreen)
+    console.log('handle')
+    NavigationHelpers.navigateToScreen(screenName.CourseDetailsScreen, { item })
   }
   return (
     <TouchableOpacity
       onPress={handleToCourseDetails}
       style={styles.container}
     >
+      {/* <SharedElement id={`item.${item.id}.photo`}> */}
       <FastImage
         source={{ uri: posterUrl }}
         style={styles.image}
         resizeMode={FastImage.resizeMode.cover}
       />
+      {/* </SharedElement> */}
       <TextCom
         textPrimary
         headingSmall
@@ -137,7 +142,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   titleText: {
-    opacity: 0.7,
+    // opacity: 0.7,
     alignSelf: 'flex-start',
   },
   starView: {

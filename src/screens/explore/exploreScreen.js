@@ -5,6 +5,11 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import Reactotron from 'reactotron-react-native'
+import {
+  SharedElement,
+  SharedElementTransition,
+  nodeFromRef,
+} from 'react-native-shared-element'
 import { colors } from '../../assets/styles'
 import { BackGroundView, SearchFieldCom, TextCom } from '../../components'
 import { screenName } from '../../configs'
