@@ -65,7 +65,7 @@ const Explore = () => {
             showsHorizontalScrollIndicator={false}
             data={course}
             extraData={course}
-            keyExtractor={(item) => `courseList${item.id}`}
+            keyExtractor={(item) => `courseList1${item.id}`}
             // bounces={false}
             snapToAlignment="start"
             snapToInterval={245 * rate}

@@ -27,11 +27,11 @@ const CoureItemList = ({ item, navigation }) => {
     const int = Math.floor(num)
     for (let i = 0; i < 5; i++) {
       if (i < int) {
-        starArr.push(<IconStar source={icons.starFill} />)
+        starArr.push(<IconStar key={i} source={icons.starFill} />)
       } else if (i === int && dec !== 0) {
-        starArr.push(<IconStar source={icons.starHalf} />)
+        starArr.push(<IconStar key={i} source={icons.starHalf} />)
       } else {
-        starArr.push(<IconStar source={icons.star} />)
+        starArr.push(<IconStar key={i} source={icons.star} />)
       }
     }
     return starArr

@@ -15,9 +15,12 @@ const rate = width / 375
 const BotViewButton = () => {
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
-  console.log('buton login')
+
   const handlerToHome = () => {
     NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+  }
+  const handlerToLogin = () => {
+    NavigationHelpers.navigateToScreen(screenName.LoginScreen)
   }
   return (
     <View style={[styles.container, { backgroundColor: theme.secondary }]}>
@@ -29,7 +32,10 @@ const BotViewButton = () => {
           {language.browse}
         </TextCom>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handlerToLogin}
+      >
         <TextCom textOnSecondary buttonTextBold>
           {language.login}
         </TextCom>

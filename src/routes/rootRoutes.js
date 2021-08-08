@@ -51,14 +51,9 @@ const RootRoutes = () => {
           }),
 
         }}
-
       >
         <Stack.Screen name={screenName.Splash} component={Splash} />
-        <Stack.Screen
-          name={screenName.Wellcome}
-          component={Wellcome}
-
-        />
+        <Stack.Screen name={screenName.Wellcome} component={Wellcome} />
         <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} />
         <Stack.Screen name={screenName.BottomTabBarRoute} component={BottomTabBarRoute} />
         <Stack.Screen name={screenName.CourseDetailsScreen} component={CourseDetailsScreen} />

@@ -22,4 +22,22 @@ export default {
   seeMore: 'see more >>',
   newCourse: 'newCourse',
   courseDetails: 'Course details',
+  registration: 'registration',
+  cancelRegistration: 'Cancel Registration',
+
+  message: 'Message',
+  messLogin: 'You need to login ><!',
+  ok: 'ok',
+  cancel: 'Cancel',
+
+  wellcomeBack: 'WELLCOM BACK',
+  accountLogin: 'Account Login',
+  userName: 'User name',
+  userNamePl: 'User name',
+  passWord: 'Password',
+  passWordPl: '******',
+
+  loginWith: 'or login with',
+  noAccount: 'No account',
+  register: 'Register now',
 }

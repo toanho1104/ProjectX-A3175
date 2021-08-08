@@ -11,6 +11,8 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.airbnb.android.react.lottie.LottiePackage;
+import com.brentvatne.react.ReactVideoPackage;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -26,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
           packages.add(new LottiePackage());
+          packages.add(new ReactVideoPackage());
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           return packages;

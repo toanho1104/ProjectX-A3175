@@ -101,12 +101,12 @@ export const textStyles = {
 
   linkTextBold: {
     ...fonts.boldItalic,
-    fontSize: 14,
+    fontSize: 16,
     // lineHeight: 1.2,
   },
   linkTextNomarl: {
     ...fonts.italic,
-    fontSize: 14,
+    fontSize: 15,
     // lineHeight: 1.2,
   },
 

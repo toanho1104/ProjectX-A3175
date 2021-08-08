@@ -16,7 +16,7 @@ const CourseCategoryList = ({ data, odd }) => {
         ? data.map((item, index) => {
           if (item.id % 2 !== 0) {
             return (
-              <Item item={item} key={item.id} index={index} />
+              <Item item={item} key={index} />
 
             )
           }
@@ -24,7 +24,7 @@ const CourseCategoryList = ({ data, odd }) => {
         : data.map((item, index) => {
           if (item.id % 2 === 0) {
             return (
-              <Item item={item} key={item.id} index={index} />
+              <Item item={item} key={index} />
             )
           }
         })}
@@ -32,10 +32,10 @@ const CourseCategoryList = ({ data, odd }) => {
   )
 }
 
-const Item = ({ item, index }) => {
+const Item = ({ item }) => {
   const theme = useSelector((state) => state.storage.theme)
   return (
-    <View key={index} style={[styles.itemView, { backgroundColor: theme?.backgroundSecondary }]}>
+    <View style={[styles.itemView, { backgroundColor: theme?.backgroundSecondary }]}>
       <FastImage
         source={{ uri: item.imageUrl }}
         style={styles.image}

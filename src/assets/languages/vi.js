@@ -22,4 +22,22 @@ export default {
   seeMore: 'Xem thêm >>',
   newCourse: 'Khóa học mới',
   courseDetails: 'Chi tiết khóa học',
+  registration: 'Đăng ký',
+  cancelRegistration: 'Hủy đăng ký',
+
+  message: 'Thông báo',
+  messLogin: 'Bạn cần đăng nhập ><!',
+  ok: 'Đồng ý',
+  cancel: 'Hủy bỏ',
+
+  wellcomeBack: 'CHÀO MỪNG BẠN QUAY TRỞ LẠI',
+  accountLogin: 'Tài khoản đăng nhập',
+  userName: 'Tài khoản',
+  userNamePl: 'Tài khoản',
+  passWord: 'Mật khẩu',
+  passWordPl: '******',
+
+  loginWith: 'Hoặc đăng nhập với',
+  noAccount: 'Bạn chưa có tài khoản',
+  register: 'Đăng ký ngay',
 }

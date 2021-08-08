@@ -11,4 +11,9 @@ export const icons = {
   starFill: require('./starFill.png'),
   starHalf: require('./starHalf.png'),
   back: require('./back.png'),
+  hide: require('./hide.png'),
+  show: require('./show.png'),
+  faceBook: require('./faceBook.png'),
+  google: require('./google.png'),
+  apple: require('./apple.png'),
 }
