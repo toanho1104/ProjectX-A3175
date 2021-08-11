@@ -20,8 +20,9 @@ const Splash = () => {
   const dispatch = useDispatch()
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
+  const token = useSelector((state) => state.storage.token)
   const persist = useSelector((state) => state._persist)
-
+  console.log(token)
   useEffect(() => {
     if (persist.rehydrated) {
       if (isEmptyObject(language)) {
@@ -34,20 +35,32 @@ const Splash = () => {
           val: 'light',
         }))
       }
-      dispatch(categoryActions.getCategoryCourse({
+      if (token) {
+        dispatch(categoryActions.getCategoryCourse({
+        }, (responseCategory) => {
+          if (responseCategory.success) {
+            dispatch(courseActions.getCourse({
+              headers: { token },
+            }, () => { }))
+          }
+          setTimeout(() => {
+            NavigationHelpers.navigateToScreen(screenName.BottomTabBarRoute)
+          }, 4000)
+        }))
+      } else {
+        dispatch(categoryActions.getCategoryCourse({
+        }, (responseCategory) => {
+          if (responseCategory.success) {
+            dispatch(courseActions.getCourse({
 
-      }, (responseCategory) => {
-        if (responseCategory.success) {
-          dispatch(courseActions.getCourse({
-
-          }, () => { }))
-        }
-      }))
+            }, () => { }))
+          }
+          setTimeout(() => {
+            NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
+          }, 4000)
+        }))
+      }
     }
-
-    setTimeout(() => {
-      NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
-    }, 4000)
   }, [persist.rehydrated])
 
   return (

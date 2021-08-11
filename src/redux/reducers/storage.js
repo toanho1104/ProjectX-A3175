@@ -1,7 +1,7 @@
 // import Reactotron from 'reactotron-react-native'
 import { en, vi } from '../../assets/languages'
 import { darkColors, lightColors } from '../../assets/styles'
-import { languageTypes, themeTypes } from '../types'
+import { languageTypes, themeTypes, userTypes } from '../types'
 
 const initState = {
   token: '',
@@ -11,6 +11,8 @@ const initState = {
 
 const storageReducer = (state = initState, action) => {
   switch (action.type) {
+    case userTypes.USER_LOGIN_SUCCESS:
+      return { ...state, token: action?.payload?.data?.token }
     case languageTypes.CHANGE_LANGUAGES:
       if (action?.payload?.data.val === 'en') {
         return { ...state, language: en }

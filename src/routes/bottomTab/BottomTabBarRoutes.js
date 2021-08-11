@@ -6,6 +6,7 @@ import { screenName } from '../../configs'
 import {
   Explore, Love, Search, User,
 } from '../../screens'
+import SearchRoutes from '../searchRoutes'
 
 const Tab = createBottomTabNavigator()
 const BottomTabBarRoute = () => {
@@ -23,8 +24,8 @@ const BottomTabBarRoute = () => {
 
       />
       <Tab.Screen
-        name={screenName.Search}
-        component={Search}
+        name={screenName.SearchRoutes}
+        component={SearchRoutes}
         options={{ title: language.search }}
       />
       <Tab.Screen

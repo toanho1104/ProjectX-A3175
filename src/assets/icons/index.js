@@ -16,4 +16,5 @@ export const icons = {
   faceBook: require('./faceBook.png'),
   google: require('./google.png'),
   apple: require('./apple.png'),
+  next: require('./next.png'),
 }

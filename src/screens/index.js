@@ -6,6 +6,7 @@ import Search from './search/searchScreen'
 import Love from './love/loveScreen'
 import User from './user'
 import CourseDetailsScreen from './courseDetails/courseDetailsScreen'
+import DetailsCourseList from './detailsCourseList/index'
 
 export {
   Splash,
@@ -16,4 +17,5 @@ export {
   Love,
   User,
   CourseDetailsScreen,
+  DetailsCourseList,
 }

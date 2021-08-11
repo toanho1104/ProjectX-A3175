@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {
-  View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image, BackHandler, TouchableWithoutFeedback, Keyboard,
+  View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image, BackHandler, TouchableWithoutFeedback, Keyboard, ScrollView,
 } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
@@ -11,14 +11,19 @@ import {
 } from '../../../components'
 import { images } from '../../../assets/images'
 import { icons } from '../../../assets/icons'
+import { userActions } from '../../../redux/actions'
+import { NavigationHelpers } from '../../../utils'
+import { screenName } from '../../../configs'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 const rate = width / 375
+const rateHeight = height / 375
 const LoginScreen = () => {
+  const dispatch = useDispatch()
   const language = useSelector((state) => state.storage.language)
   const theme = useSelector((state) => state.storage.theme)
-  const [userName, setUserName] = useState('')
-  const [password, setPassword] = useState('')
+  const [userName, setUserName] = useState('admin')
+  const [passWord, setPassWord] = useState('123456')
   const [showPass, isShowPass] = useState(true)
 
   // const backAction = () => {
@@ -44,103 +49,118 @@ const LoginScreen = () => {
   const tongShow = () => {
     isShowPass(!showPass)
   }
+  const handleLogin = () => {
+    dispatch(userActions.userLogin({
+      userName,
+      passWord,
+    }, (userRes) => {
+      if (userRes.success) {
+        NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+      }
+    }))
+  }
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard} style={{ flex: 1 }}>
       <BackGroundView style={styles.container}>
-        <KeyboardAwareScrollView
-          scrollEnabled={false}
-          keyboardOpeningTime={50}
-        >
-          <FastImage
-            source={images.login}
-            style={styles.mainImage}
-            resizeMode={FastImage.resizeMode.contain}
-          />
-          <View style={{ width: 310 * rate, marginTop: 20 }}>
-            <TextCom
-              textPrimary
-              style={{ opacity: 0.5, alignSelf: 'flex-start' }}
-            >
-              {language?.wellcomeBack}
-            </TextCom>
-            <TextCom
-              textPrimary
-              style={{ alignSelf: 'flex-start' }}
-              headingLarge
-            >
-              {language?.accountLogin}
-            </TextCom>
-            <View style={styles.space} />
-            <TextFieldCom
-              text={language?.userName}
-              value={userName}
-              onChangeText={(text) => setUserName(text)}
-              handlerClearString={(val) => setUserName(val)}
-              string={userName}
-              placeholder={language?.userNamePl}
-            />
-            <View style={styles.space} />
-            <TextFieldCom
-              text={language?.passWord}
-              secureTextEntry={showPass}
-              value={password}
-              onChangeText={(text) => setPassword(text)}
-              handlerClearString={(val) => setPassword(val)}
-              string={password}
-              placeholder={language?.passWordPl}
-            >
-              <TouchableOpacity onPress={tongShow} style={{ marginLeft: 10 }}>
-                {showPass ? <IconCom source={icons.show} /> : <IconCom source={icons.hide} />}
-              </TouchableOpacity>
-            </TextFieldCom>
-          </View>
-          <View style={styles.space} />
-          <View style={[styles.button, { backgroundColor: theme.primary }]}>
-            <TextCom
-              textOnPrimary
-              buttonTextBold
-            >
-              {language?.login}
-            </TextCom>
-          </View>
-          <View style={{ width: 310 * rate, marginTop: 20 }}>
-            <TextCom
-              textPrimary
-              linkTextNomarl
-              style={{ alignSelf: 'center', color: theme.primary }}
-            >
-              {language?.loginWith}
-            </TextCom>
-          </View>
-          <OptionListLogin />
-          <View style={{
-            width: 310 * rate,
-            marginTop: 20,
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: 30,
-            flexDirection: 'row',
-          }}
+        <ScrollView>
+          <KeyboardAwareScrollView
+            scrollEnabled={false}
+            keyboardOpeningTime={50}
           >
-            <TextCom
-              textPrimary
-              linkTextNomarl
-            >
-              {language?.noAccount}
-              {' '}
-            </TextCom>
-            <TouchableOpacity style={{ alignItems: 'center' }}>
+            <FastImage
+              source={images.login}
+              style={styles.mainImage}
+              resizeMode={FastImage.resizeMode.contain}
+            />
+            <View style={{ width: 310 * rate, marginTop: 20 * rate }}>
               <TextCom
-                linkTextBold
                 textPrimary
-                style={{ color: theme.primary }}
+                style={{ opacity: 0.5, alignSelf: 'flex-start' }}
               >
-                {language?.register}
+                {language?.wellcomeBack}
+              </TextCom>
+              <TextCom
+                textPrimary
+                style={{ alignSelf: 'flex-start' }}
+                headingLarge
+              >
+                {language?.accountLogin}
+              </TextCom>
+              <View style={styles.space} />
+              <TextFieldCom
+                text={language?.userName}
+                value={userName}
+                onChangeText={(text) => setUserName(text)}
+                handlerClearString={(val) => setUserName(val)}
+                string={userName}
+                placeholder={language?.userNamePl}
+              />
+              <View style={styles.space} />
+              <TextFieldCom
+                text={language?.passWord}
+                secureTextEntry={showPass}
+                value={passWord}
+                onChangeText={(text) => setPassWord(text)}
+                handlerClearString={(val) => setPassWord(val)}
+                string={passWord}
+                placeholder={language?.passWordPl}
+              >
+                <TouchableOpacity onPress={tongShow} style={{ marginLeft: 10 }}>
+                  {showPass ? <IconCom source={icons.show} /> : <IconCom source={icons.hide} />}
+                </TouchableOpacity>
+              </TextFieldCom>
+            </View>
+            <View style={styles.space} />
+            <TouchableOpacity
+              onPress={handleLogin}
+              style={[styles.button, { backgroundColor: theme.primary }]}
+            >
+              <TextCom
+                textOnPrimary
+                buttonTextBold
+              >
+                {language?.login}
               </TextCom>
             </TouchableOpacity>
+            <View style={{ width: 310 * rate, marginTop: 15 * rate }}>
+              <TextCom
+                textPrimary
+                linkTextNomarl
+                style={{ alignSelf: 'center', color: theme.primary }}
+              >
+                {language?.loginWith}
+              </TextCom>
+            </View>
+            <OptionListLogin />
+            <View style={{
+              width: 310 * rate,
+              marginTop: 20 * rate,
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 25 * rate,
+              flexDirection: 'row',
+            }}
+            >
+              <TextCom
+                textPrimary
+                linkTextNomarl
+              >
+                {language?.noAccount}
+                {' '}
+              </TextCom>
+              <TouchableOpacity style={{ alignItems: 'center' }}>
+                <TextCom
+                  linkTextBold
+                  textPrimary
+                  style={{ color: theme.primary }}
+                >
+                  {language?.register}
+                </TextCom>
+              </TouchableOpacity>
 
-          </View>
-        </KeyboardAwareScrollView>
+            </View>
+          </KeyboardAwareScrollView>
+        </ScrollView>
       </BackGroundView>
     </TouchableWithoutFeedback>
   )
@@ -151,7 +171,7 @@ const OptionListLogin = () => {
       width: 310 * rate,
       justifyContent: 'space-between',
       flexDirection: 'row',
-      marginTop: 20,
+      marginTop: 15 * rate,
     }}
     >
       <ItemLogin source={icons.faceBook} />
@@ -166,7 +186,7 @@ const ItemLogin = ({ source }) => {
     <TouchableOpacity style={{ borderWidth: 2 * StyleSheet.hairlineWidth, borderRadius: 60, padding: 5 }}>
       <FastImage
         source={source}
-        style={{ width: 60 * rate, height: 60 * rate }}
+        style={{ width: 55 * rate, height: 55 * rate }}
       />
     </TouchableOpacity>
   )
@@ -180,19 +200,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
   },
   mainImage: {
-    width: 300 * rate,
-    height: 180 * rate,
+    width: 290 * rate,
+    height: 170 * rate,
   },
   space: {
-    height: 20,
+    height: 20 * rate,
   },
   button: {
     width: 310 * rate,
-    height: 60 * rate,
+    height: 55 * rate,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
     borderRadius: 10,
-    marginTop: 30,
+    marginTop: 25 * rate,
   },
 })

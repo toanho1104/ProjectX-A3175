@@ -10,7 +10,7 @@ export default function* categorySaga() {
 function* getCourse(action) {
   const { data, callback } = action?.payload
   try {
-    const response = yield call(() => axios.get(`${API_URL}/course`))
+    const response = yield call(() => axios.get(`${API_URL}/course`, data,))
     if (response?.data?.success) {
       yield put({
         type: courseTypes.GET_COUSER_SUCCESS,

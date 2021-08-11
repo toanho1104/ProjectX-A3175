@@ -30,7 +30,14 @@ const Explore = () => {
   const category = useSelector((state) => state.categories.courseCategoryList)
   const course = useSelector((state) => state.courses.courseList)
   const [value, setValue] = useState('')
+  const [dataCourseOld, setDataCourseOld] = useState()
+  const [dataMyCourse, setDataMyCourse] = useState()
+
   useEffect(() => {
+    const dataNew = [...course]
+    const myCourse = course.filter((item) => item.isLearning === true)
+    setDataMyCourse(myCourse)
+    setDataCourseOld(dataNew.reverse())
   }, [])
 
   return (
@@ -44,6 +51,25 @@ const Explore = () => {
           returnKeyType="search"
           placeholder={language?.searchPlaceholder}
         />
+        <HeaderTitle text={language.randomCourse} />
+        <View style={{ height: 280 * rate }}>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={course}
+            extraData={course}
+            keyExtractor={(item) => `courseList${item.id}`}
+            // bounces={false}
+            snapToAlignment="start"
+            snapToInterval={245 * rate}
+            decelerationRate="fast"
+            renderItem={({ item, index }) => {
+              return (
+                <CoureItemList item={item} />
+              )
+            }}
+          />
+        </View>
         <HeaderTitle text={language.category} />
 
         <View style={styles.categoriesView}>
@@ -63,8 +89,8 @@ const Explore = () => {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={course}
-            extraData={course}
+            data={dataCourseOld}
+            extraData={dataCourseOld}
             keyExtractor={(item) => `courseList1${item.id}`}
             // bounces={false}
             snapToAlignment="start"
@@ -77,14 +103,14 @@ const Explore = () => {
             }}
           />
         </View>
-        <HeaderTitle text={language.newCourse} />
+        <HeaderTitle text={language.myCourse} />
         <View style={{ height: 280 * rate }}>
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={course}
-            extraData={course}
-            keyExtractor={(item) => `courseList${item.id}`}
+            data={dataMyCourse}
+            extraData={dataMyCourse}
+            keyExtractor={(item) => `courseList1${item.id}`}
             // bounces={false}
             snapToAlignment="start"
             snapToInterval={245 * rate}
@@ -96,6 +122,7 @@ const Explore = () => {
             }}
           />
         </View>
+
       </ScrollView>
     </BackGroundView>
   )

@@ -20,7 +20,10 @@ export default {
   searchPlaceholder: 'What do you want to search?',
   category: 'Categories',
   seeMore: 'see more >>',
+
+  randomCourse: 'Random course',
   newCourse: 'newCourse',
+  myCourse: 'My Course',
   courseDetails: 'Course details',
   registration: 'registration',
   cancelRegistration: 'Cancel Registration',
@@ -40,4 +43,7 @@ export default {
   loginWith: 'or login with',
   noAccount: 'No account',
   register: 'Register now',
+
+  popularKeywords: 'Popular keywords',
+  emptyList: 'Empty list',
 }

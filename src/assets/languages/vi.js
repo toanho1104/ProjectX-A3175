@@ -18,9 +18,12 @@ export default {
   English: 'Anh',
   darkMode: 'Chế độ ban đêm',
   searchPlaceholder: 'Bạn muốn tìm gì?',
+
   category: 'Danh mục khóa học',
   seeMore: 'Xem thêm >>',
+  randomCourse: 'Khóa học ngẫu nhiên',
   newCourse: 'Khóa học mới',
+  myCourse: 'Khóa hoc của tôi',
   courseDetails: 'Chi tiết khóa học',
   registration: 'Đăng ký',
   cancelRegistration: 'Hủy đăng ký',
@@ -40,4 +43,7 @@ export default {
   loginWith: 'Hoặc đăng nhập với',
   noAccount: 'Bạn chưa có tài khoản',
   register: 'Đăng ký ngay',
+
+  popularKeywords: 'Từ khóa phổ biến',
+  emptyList: 'Không có kết quả',
 }
