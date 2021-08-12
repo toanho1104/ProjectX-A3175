@@ -5,6 +5,7 @@ import {
 } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
+import Voice from '@react-native-community/voice'
 import { SearchFieldCom, TextCom } from '../../components'
 import BackGroundCom from '../../components/backgroundCom'
 import HeaderTitle from './headerTitle'
@@ -22,6 +23,7 @@ const Search = () => {
   const course = useSelector((state) => state.courses.courseList)
   const [value, setValue] = useState('')
   const [dataList, setDataList] = useState([])
+  const [isLoading, setLoading] = useState(false)
   // useFocusEffect(
   //   useCallback(() => {
   //     console.log('sera=cg')
@@ -32,6 +34,56 @@ const Search = () => {
   //     }
   //   }, [])
   // )
+  useFocusEffect(
+    useCallback(() => {
+      Voice.onSpeechStart = onSpeechStartHandler
+      Voice.onSpeechEnd = onSpeechEndHandler
+      Voice.onSpeechResults = onSpeechResultsHandler
+      return () => {
+        Voice.destroy().then(Voice.removeAllListeners)
+      }
+    }, [])
+  )
+
+  useEffect(() => {
+    handeSearchFilter(value)
+
+    return () => {
+
+    }
+  }, [value])
+
+  const onSpeechStartHandler = (e) => {
+    console.log('start handler==>>>', e)
+  }
+  const onSpeechEndHandler = (e) => {
+    setLoading(false)
+    console.log('stop handler', e)
+  }
+
+  const onSpeechResultsHandler = (e) => {
+    const text = e.value[0]
+    setValue(text)
+    console.log('speech result handler', e)
+  }
+
+  const startRecording = async () => {
+    setLoading(true)
+    try {
+      await Voice.start('en-Us')
+    } catch (error) {
+      console.log('error raised', error)
+    }
+  }
+
+  const stopRecording = async () => {
+    try {
+      await Voice.stop()
+    } catch (error) {
+      console.log('error raised', error)
+    }
+  }
+
   const handeSearchFilter = (text) => {
     if (text) {
       console.log(text)
@@ -43,33 +95,16 @@ const Search = () => {
         return itemData.indexOf(textData) > -1
       })
       setDataList(newData)
-      setValue(text)
     } else {
       console.log('nox')
-      setValue(text)
     }
   }
 
   const handleToCourseDetailsScreen = (item) => {
     NavigationHelpers.navigateToScreen(screenName.DetailsCourseListScreen, { item })
   }
-  const handlePressKeyWord = (item) => {
-    const text = item?.title
-    if (text) {
-      console.log(text)
-      const newData = course.filter((item) => {
-        const itemData = item.name
-          ? item.name.toUpperCase()
-          : ''.toUpperCase()
-        const textData = text.toUpperCase()
-        return itemData.indexOf(textData) > -1
-      })
-      setDataList(newData)
-      setValue(text)
-    } else {
-      console.log('nox')
-      setValue(text)
-    }
+  const handlePressKeyWord = (text) => {
+    setValue(text?.title)
   }
 
   const ListHeaderComponent = () => {
@@ -107,7 +142,7 @@ const Search = () => {
       <SearchFieldCom
         string={value}
         value={value}
-        onChangeText={(text) => handeSearchFilter(text)}
+        onChangeText={(text) => setValue(text)}
         handlerClearString={(val) => setValue(val)}
         returnKeyType="search"
         placeholder={language?.searchPlaceholder}
@@ -139,6 +174,13 @@ const Search = () => {
             )
           }}
         />}
+
+      <TouchableOpacity onPress={startRecording}>
+        <Text>bat dau</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={stopRecording}>
+        <Text>iket thuc</Text>
+      </TouchableOpacity>
     </BackGroundCom>
   )
 }
