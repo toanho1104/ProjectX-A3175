@@ -37,7 +37,7 @@ const Item = ({ item }) => {
   return (
     <View style={[styles.itemView, { backgroundColor: theme?.backgroundSecondary }]}>
       <FastImage
-        source={{ uri: item.imageUrl }}
+        source={{ uri: item?.imageUrl }}
         style={styles.image}
       />
 

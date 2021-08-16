@@ -3,6 +3,7 @@ export default {
   waiting: 'Đợi xíu nhé...',
   browse: 'Dùng ngay',
   login: 'Đăng nhập',
+  logout: 'Đăng xuất',
   explore: 'Khám phá',
   search: 'Tìm kiếm',
   wishList: 'Yêu thích',
@@ -46,4 +47,19 @@ export default {
 
   popularKeywords: 'Từ khóa phổ biến',
   emptyList: 'Không có kết quả',
+
+  setting: 'Cài đặt ứng dụng ',
+  contact: 'Liên hệ',
+  userSetting: 'Thiết lập người dùng',
+  infor: 'Thông tin ứng dụng',
+
+  logoutWarning: 'Bạn muốn đăng xuất?',
+
+  syncSettings: 'Đồng bộ cài đặt',
+
+  updateWarning: 'Tính năng sẽ được cập nhật ở phiên bản sau!',
+
+  fullName: 'Họ và tên',
+  dateOfBirth: 'Ngày sinh',
+  address: 'Địa chỉ',
 }

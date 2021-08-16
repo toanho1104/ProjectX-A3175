@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { SharedElement } from 'react-navigation-shared-element'
 import { IconCom, TextCom } from '../../components'
 import { icons } from '../../assets/icons'
-import { dateFormat } from '../../common'
+import { base64, dateFormat } from '../../common'
 import { NavigationHelpers } from '../../utils'
 import { screenName } from '../../configs'
 
@@ -49,7 +49,6 @@ const CoureItemList = ({ item, navigation }) => {
   }
 
   const handleToCourseDetails = () => {
-    console.log('handle')
     NavigationHelpers.navigateToScreen(screenName.CourseDetailsScreen, { item })
   }
   return (
@@ -89,7 +88,7 @@ const CoureItemList = ({ item, navigation }) => {
       <View style={styles.authorContentViewCon}>
         <View style={styles.authorContentView}>
           <FastImage
-            source={{ uri: avatarUrl }}
+            source={{ uri: `data:image/png;base64,${avatarUrl}` }}
             style={styles.avatar}
           />
           <TextCom

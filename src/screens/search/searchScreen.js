@@ -6,7 +6,8 @@ import {
 import { useFocusEffect } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import Voice from '@react-native-community/voice'
-import { SearchFieldCom, TextCom } from '../../components'
+import LottieView from 'lottie-react-native'
+import { ModelCom, SearchFieldCom, TextCom } from '../../components'
 import BackGroundCom from '../../components/backgroundCom'
 import HeaderTitle from './headerTitle'
 import { popularKeywords, screenName } from '../../configs'
@@ -14,6 +15,7 @@ import ItemKeyWord from './itemKeyword'
 import ItemCategory from './itemCategory'
 import { NavigationHelpers } from '../../utils'
 import CoureItem from './courseItem'
+import { images } from '../../assets/images'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
@@ -23,6 +25,7 @@ const Search = () => {
   const course = useSelector((state) => state.courses.courseList)
   const [value, setValue] = useState('')
   const [dataList, setDataList] = useState([])
+  const [isShow, setShow] = useState(false)
   const [isLoading, setLoading] = useState(false)
   // useFocusEffect(
   //   useCallback(() => {
@@ -39,6 +42,8 @@ const Search = () => {
       Voice.onSpeechStart = onSpeechStartHandler
       Voice.onSpeechEnd = onSpeechEndHandler
       Voice.onSpeechResults = onSpeechResultsHandler
+      Voice.onSpeechError = onSpeechError
+
       return () => {
         Voice.destroy().then(Voice.removeAllListeners)
       }
@@ -53,11 +58,17 @@ const Search = () => {
     }
   }, [value])
 
+  const onSpeechError = (e) => {
+    setShow(false)
+    console.log('onSpeechError: ', e)
+  }
+
   const onSpeechStartHandler = (e) => {
+    setShow(true)
     console.log('start handler==>>>', e)
   }
   const onSpeechEndHandler = (e) => {
-    setLoading(false)
+    setShow(false)
     console.log('stop handler', e)
   }
 
@@ -68,7 +79,6 @@ const Search = () => {
   }
 
   const startRecording = async () => {
-    setLoading(true)
     try {
       await Voice.start('en-Us')
     } catch (error) {
@@ -86,7 +96,6 @@ const Search = () => {
 
   const handeSearchFilter = (text) => {
     if (text) {
-      console.log(text)
       const newData = course.filter((item) => {
         const itemData = item.name
           ? item.name.toUpperCase()
@@ -96,7 +105,7 @@ const Search = () => {
       })
       setDataList(newData)
     } else {
-      console.log('nox')
+
     }
   }
 
@@ -146,6 +155,7 @@ const Search = () => {
         handlerClearString={(val) => setValue(val)}
         returnKeyType="search"
         placeholder={language?.searchPlaceholder}
+        onPress={startRecording}
       />
 
       {value.length === 0 ? <FlatList
@@ -175,12 +185,33 @@ const Search = () => {
           }}
         />}
 
-      <TouchableOpacity onPress={startRecording}>
-        <Text>bat dau</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={stopRecording}>
-        <Text>iket thuc</Text>
-      </TouchableOpacity>
+      <ModelCom
+        visible={isShow}
+      // handleHide={(t) => setShow(t)}
+      >
+        <View
+          style={styles.modalCon}
+
+        >
+          <LottieView
+            source={images.record}
+            autoPlay
+            loop
+            style={styles.image}
+          />
+          <TouchableOpacity
+            onPress={stopRecording}
+            style={{ backgroundColor: 'red', padding: 6, borderRadius: 4 }}
+          >
+            <TextCom
+              buttonTextNomarl
+              style={{ color: 'white' }}
+            >
+              {language?.cancel}
+            </TextCom>
+          </TouchableOpacity>
+        </View>
+      </ModelCom>
     </BackGroundCom>
   )
 }
@@ -197,5 +228,17 @@ const styles = StyleSheet.create({
     width: 345 * rate,
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  modalCon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: 'white',
+  },
+  image: {
+    width: 150 * rate,
+    height: 150 * rate,
+    // borderWidth: 1,
+    // marginBottom: -25 * rate,
+
   },
 })

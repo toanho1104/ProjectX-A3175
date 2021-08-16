@@ -5,6 +5,8 @@ import SearchFieldCom from './searchFieldCom'
 import HeaderCom from './headerCom'
 import TextInputCom from './textInputCom'
 import TextFieldCom from './textFieldCom'
+import ModelCom from './modelCom'
+import BorderLine from './borderLine'
 
 export {
   BackGroundView,
@@ -14,4 +16,6 @@ export {
   HeaderCom,
   TextInputCom,
   TextFieldCom,
+  ModelCom,
+  BorderLine,
 }

@@ -5,4 +5,6 @@ export const images = {
   mode: require('./3660-night-mode.json'),
   login: require('./LoginMain.png'),
   create: require('./createMain.png'),
+  record: require('./19162-red-recorder.json'),
+  noAvatar: require('./noAvatar.png'),
 }

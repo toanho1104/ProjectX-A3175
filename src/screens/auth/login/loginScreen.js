@@ -11,8 +11,8 @@ import {
 } from '../../../components'
 import { images } from '../../../assets/images'
 import { icons } from '../../../assets/icons'
-import { userActions } from '../../../redux/actions'
-import { NavigationHelpers } from '../../../utils'
+import { courseActions, userActions } from '../../../redux/actions'
+import { Helpers, NavigationHelpers } from '../../../utils'
 import { screenName } from '../../../configs'
 
 const { width, height } = Dimensions.get('window')
@@ -54,8 +54,24 @@ const LoginScreen = () => {
       userName,
       passWord,
     }, (userRes) => {
-      if (userRes.success) {
+      if (userRes?.success) {
+        console.tron.log(userRes)
+        dispatch(courseActions.getCourse({
+          headers: { token: userRes?.data?.token },
+        }, (resCourse) => {
+          if (resCourse.success) {
+            dispatch(userActions.getUserInfo({
+              headers: { token: userRes?.data?.token },
+            }, () => {
+              NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+            }))
+          }
+        }))
+
+        Helpers.showMess('Đăng nhập thành công', 'success')
         NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+      } else {
+        Helpers.showMess('Đăng nhập thành công')
       }
     }))
   }

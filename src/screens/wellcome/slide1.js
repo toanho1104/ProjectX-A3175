@@ -16,7 +16,6 @@ import { languesActions } from '../../redux/actions'
 const { width, height } = Dimensions.get('window')
 const rate = width / 375
 const Slide1 = () => {
-  console.log('Slide1')
   const dispatch = useDispatch()
   const language = useSelector((state) => state.storage.language)
   const [open, setOpen] = useState(false)

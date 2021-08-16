@@ -6,3 +6,9 @@ export const userLogin = (data, callback) => {
     payload: { data, callback },
   }
 }
+export const getUserInfo = (data, callback) => {
+  return {
+    type: userTypes.GET_USER_INFO,
+    payload: { data, callback },
+  }
+}

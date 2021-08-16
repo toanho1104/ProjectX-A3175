@@ -14,7 +14,6 @@ import { icons } from '../../assets/icons'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const Slide3 = () => {
-  console.log('Slide3')
   const language = useSelector((state) => state.storage.language)
   return (
     <BackGroundView>

@@ -10,7 +10,9 @@ import IconCom from './iconCom'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const SearchFieldCom = ({ string, handlerClearString, ...props }) => {
+const SearchFieldCom = ({
+  string, handlerClearString, onPress, ...props
+}) => {
   const [clearIcon, setClearIcon] = useState(false)
   useEffect(() => {
     if (string?.length === 0) {
@@ -37,9 +39,9 @@ const SearchFieldCom = ({ string, handlerClearString, ...props }) => {
             />
           </TouchableOpacity>}
       </View>
-      <View style={styles.viewRight}>
+      <TouchableOpacity onPress={onPress} style={styles.viewRight}>
         <IconCom source={icons.mic} />
-      </View>
+      </TouchableOpacity>
     </View>
   )
 }

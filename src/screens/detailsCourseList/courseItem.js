@@ -49,7 +49,6 @@ const CoureItem = ({ item, navigation }) => {
   }
 
   const handleToCourseDetails = () => {
-    console.log('handle')
     NavigationHelpers.navigateToScreen(screenName.CourseDetailsScreen, { item })
   }
   return (

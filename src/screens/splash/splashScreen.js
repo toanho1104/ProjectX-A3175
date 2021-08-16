@@ -8,7 +8,7 @@ import LottieView from 'lottie-react-native'
 import { NavigationHelpers } from '../../utils'
 import { screenName } from '../../configs'
 import {
-  categoryActions, courseActions, languesActions, themeActions,
+  categoryActions, courseActions, languesActions, themeActions, userActions,
 } from '../../redux/actions'
 import { isEmptyObject } from '../../common'
 import { images } from '../../assets/images'
@@ -22,7 +22,7 @@ const Splash = () => {
   const language = useSelector((state) => state.storage.language)
   const token = useSelector((state) => state.storage.token)
   const persist = useSelector((state) => state._persist)
-  console.log(token)
+
   useEffect(() => {
     if (persist.rehydrated) {
       if (isEmptyObject(language)) {
@@ -41,23 +41,26 @@ const Splash = () => {
           if (responseCategory.success) {
             dispatch(courseActions.getCourse({
               headers: { token },
-            }, () => { }))
+            }, (resCourse) => {
+              if (resCourse.success) {
+                dispatch(userActions.getUserInfo({
+                  headers: { token },
+                }, () => {
+                  NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+                }))
+              }
+            }))
           }
-          setTimeout(() => {
-            NavigationHelpers.navigateToScreen(screenName.BottomTabBarRoute)
-          }, 4000)
         }))
       } else {
         dispatch(categoryActions.getCategoryCourse({
         }, (responseCategory) => {
           if (responseCategory.success) {
             dispatch(courseActions.getCourse({
-
-            }, () => { }))
+            }, () => {
+              NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
+            }))
           }
-          setTimeout(() => {
-            NavigationHelpers.navigateToScreenAndReplace(screenName.Wellcome)
-          }, 4000)
         }))
       }
     }

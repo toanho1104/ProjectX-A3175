@@ -9,14 +9,26 @@ import { fonts, textStyles } from '../../assets/styles'
 import { TextCom } from '../../components'
 import { NavigationHelpers } from '../../utils'
 import { screenName } from '../../configs'
+import { categoryActions, courseActions } from '../../redux/actions'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const BotViewButton = () => {
+  const dispatch = useDispatch()
   const theme = useSelector((state) => state.storage.theme)
   const language = useSelector((state) => state.storage.language)
 
   const handlerToHome = () => {
+    dispatch(categoryActions.getCategoryCourse({
+    }, (responseCategory) => {
+      if (responseCategory.success) {
+        dispatch(courseActions.getCourse({
+
+        }, () => {
+          NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+        }))
+      }
+    }))
     NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
   }
   const handlerToLogin = () => {

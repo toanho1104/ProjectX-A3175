@@ -7,6 +7,9 @@ import Love from './love/loveScreen'
 import User from './user'
 import CourseDetailsScreen from './courseDetails/courseDetailsScreen'
 import DetailsCourseList from './detailsCourseList/index'
+import AppSetting from './appSetting'
+import Contact from './contact'
+import UserSetting from './userSetting'
 
 export {
   Splash,
@@ -18,4 +21,7 @@ export {
   User,
   CourseDetailsScreen,
   DetailsCourseList,
+  AppSetting,
+  Contact,
+  UserSetting,
 }

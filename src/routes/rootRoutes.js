@@ -8,10 +8,14 @@ import { navigationRef } from '../utils/NavigationHelpers'
 import { screenName } from '../configs'
 import BottomTabBarRoute from './bottomTab/BottomTabBarRoutes'
 import {
-  CourseDetailsScreen, LoginScreen, Splash, Wellcome,
+  AppSetting,
+  Contact,
+  CourseDetailsScreen,
+  LoginScreen, Splash, UserSetting, Wellcome,
 } from '../screens'
-import DetailsCourseListScreen from '../screens/detailsCourseList'
-import SearchRoutes from './searchRoutes'
+
+import AppInfor from '../screens/appInfor'
+
 // import HOC from '../screens/HOC'
 
 const Stack = createStackNavigator()
@@ -58,16 +62,21 @@ const RootRoutes = () => {
       >
         {token ? (<>
           <Stack.Screen name={screenName.Splash} component={Splash} />
-          <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} />
+          {/* <Stack.Screen name={screenName.Wellcome} component={Wellcome} /> */}
+          {/* <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} /> */}
           <Stack.Screen name={screenName.BottomTabBarRoute} component={BottomTabBarRoute} />
           <Stack.Screen name={screenName.CourseDetailsScreen} component={CourseDetailsScreen} />
+          <Stack.Screen name={screenName.AppSetting} component={AppSetting} />
+          <Stack.Screen name={screenName.Contact} component={Contact} />
+          <Stack.Screen name={screenName.AppInfor} component={AppInfor} />
+          <Stack.Screen name={screenName.UserSetting} component={UserSetting} />
           {/* <Stack.Screen name={screenName.DetailsCourseListScreen} component={DetailsCourseListScreen} /> */}
           {/* <Stack.Screen name={screenName.SearchRoutes} component={SearchRoutes} /> */}
         </>)
           : (<>
             <Stack.Screen name={screenName.Splash} component={Splash} />
-            <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} />
             <Stack.Screen name={screenName.Wellcome} component={Wellcome} />
+            <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} />
             <Stack.Screen name={screenName.BottomTabBarRoute} component={BottomTabBarRoute} />
             <Stack.Screen name={screenName.CourseDetailsScreen} component={CourseDetailsScreen} />
             {/* <Stack.Screen name={screenName.DetailsCourseListScreen} component={DetailsCourseListScreen} /> */}

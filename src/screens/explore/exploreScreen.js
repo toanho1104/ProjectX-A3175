@@ -26,6 +26,7 @@ const { width } = Dimensions.get('window')
 const rate = width / 375
 const Explore = () => {
   const dispatch = useDispatch()
+  const token = useSelector((state) => state.storage.token)
   const language = useSelector((state) => state.storage.language)
   const category = useSelector((state) => state.categories.courseCategoryList)
   const course = useSelector((state) => state.courses.courseList)
@@ -35,8 +36,10 @@ const Explore = () => {
 
   useEffect(() => {
     const dataNew = [...course]
-    const myCourse = course.filter((item) => item.isLearning === true)
-    setDataMyCourse(myCourse)
+    if (token) {
+      const myCourse = course.filter((item) => item.isLearning === true)
+      setDataMyCourse(myCourse)
+    }
     setDataCourseOld(dataNew.reverse())
   }, [])
 
@@ -103,25 +106,28 @@ const Explore = () => {
             }}
           />
         </View>
-        <HeaderTitle text={language.myCourse} />
-        <View style={{ height: 280 * rate }}>
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={dataMyCourse}
-            extraData={dataMyCourse}
-            keyExtractor={(item) => `courseList1${item.id}`}
-            // bounces={false}
-            snapToAlignment="start"
-            snapToInterval={245 * rate}
-            decelerationRate="fast"
-            renderItem={({ item, index }) => {
-              return (
-                <CoureItemList item={item} />
-              )
-            }}
-          />
-        </View>
+        {token
+          && <>
+            <HeaderTitle text={language.myCourse} />
+            <View style={{ height: 280 * rate }}>
+              <FlatList
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={dataMyCourse}
+                extraData={dataMyCourse}
+                keyExtractor={(item) => `courseList1${item.id}`}
+                // bounces={false}
+                snapToAlignment="start"
+                snapToInterval={245 * rate}
+                decelerationRate="fast"
+                renderItem={({ item, index }) => {
+                  return (
+                    <CoureItemList item={item} />
+                  )
+                }}
+              />
+            </View>
+          </>}
 
       </ScrollView>
     </BackGroundView>

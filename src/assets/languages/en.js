@@ -3,6 +3,7 @@ export default {
   waiting: 'waiting a minute...',
   browse: 'Browse',
   login: 'Login',
+  logout: 'Logout',
   explore: 'Explore',
   search: 'Search',
   wishList: 'Wishlist',
@@ -46,4 +47,19 @@ export default {
 
   popularKeywords: 'Popular keywords',
   emptyList: 'Empty list',
+
+  setting: 'App settings',
+  contact: 'Contact',
+  userSetting: 'User settings',
+  infor: 'App info',
+
+  logoutWarning: 'You want to sign out?',
+
+  syncSettings: 'Sync settings',
+
+  updateWarning: 'The feature will be updated in the next version!',
+
+  fullName: 'Full name',
+  dateOfBirth: 'Date of birth',
+  address: 'Address',
 }

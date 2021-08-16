@@ -13,7 +13,6 @@ import { themeActions } from '../../redux/actions'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const Slide2 = () => {
-  console.log('Slide2')
   const dispatch = useDispatch()
   const language = useSelector((state) => state.storage.language)
   const theme = useSelector((state) => state.storage.theme)

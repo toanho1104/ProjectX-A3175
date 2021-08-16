@@ -1,27 +1,31 @@
-// export const colors = {
-//   primaryDark: '#00004F',
-//   primary: '#19227C',
-//   primaryLight: '#524AAC',
-
-//   secondaryDark: '#C8B900',
-//   secondary: '#FFEB3B',
-//   secondaryLight: '#FFFF72',
-
-//   textDark: '#000000',
-//   textLight: '#757575',
-//   textOnPrimary: '#ffffff',
-//   textOnSecondary: '#000000',
-
-//   iconPrimary: '#60727d',
-
-//   backgroundPrimary: '#ffffff',
-//   backgroundSecondary: '#E5E5E5',
-
-// }
 import { Dimensions } from 'react-native'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
+
+export const colors = {
+  primaryDark: '#00004F',
+  primary: '#19227C',
+  primaryLight: '#524AAC',
+
+  secondaryDark: '#C8B900',
+  secondary: '#FFEB3B',
+  secondaryLight: '#FFFF72',
+
+  textDark: '#000000',
+  textLight: '#757575',
+  textOnPrimary: '#ffffff',
+  textOnSecondary: '#000000',
+
+  iconPrimary: '#60727d',
+
+  backgroundPrimary: '#ffffff',
+  backgroundSecondary: '#E5E5E5',
+
+  red: '#c41c00',
+  green: '#11942D',
+}
+
 export const lightColors = {
   darkMode: false,
   primaryDark: '#00004F',
@@ -167,3 +171,24 @@ export const textStyles = {
 //     elevation: 8,
 //   },
 // }
+
+export const MessageStyle = {
+  success: {
+    style: {
+      backgroundColor: colors.green,
+      borderBottomLeftRadius: 15,
+      borderBottomRightRadius: 15,
+    },
+    titleStyle: textStyles.headingSmall,
+    duration: 1000,
+  },
+  error: {
+    style: {
+      backgroundColor: colors.red,
+      borderBottomLeftRadius: 15,
+      borderBottomRightRadius: 15,
+    },
+    titleStyle: textStyles.headingSmall,
+    duration: 1000,
+  },
+}

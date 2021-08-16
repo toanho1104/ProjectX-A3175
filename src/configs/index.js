@@ -12,7 +12,10 @@ export const screenName = {
   SearchRoutes: 'SearchRoutes',
   Search: 'Search',
   DetailsCourseListScreen: 'DetailsCourseListScreen',
-
+  AppSetting: 'AppSetting',
+  Contact: 'Contact',
+  AppInfor: 'AppInfor',
+  UserSetting: 'UserSetting',
 }
 
 export const bottom_tab_data = [

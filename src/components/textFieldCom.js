@@ -5,6 +5,7 @@ import {
 import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import * as Animatable from 'react-native-animatable'
 import TextCom from './textCom'
 import TextInputCom from './textInputCom'
 import IconCom from './iconCom'
@@ -13,12 +14,13 @@ import { icons } from '../assets/icons'
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const TextFieldCom = ({
-  text, string, handlerClearString, children, ...props
+  text, string, handlerClearString, children, error, ...props
 }) => {
   const theme = useSelector((state) => state.storage.theme)
   const [clearIcon, setClearIcon] = useState(false)
   const tranX = useRef(new Animated.Value(0)).current
   useEffect(() => {
+    console.log(error)
     if (string?.length === 0) {
       setClearIcon(false)
     } else { setClearIcon(true) }
@@ -47,12 +49,26 @@ const TextFieldCom = ({
 
     }}
     >
-      <TextCom
-        textPrimary
-        contenTextRegular
-      >
-        {text}
-      </TextCom>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+        <TextCom
+          textPrimary
+          contenTextRegular
+        >
+          {text}
+        </TextCom>
+        {error && <Animatable.View
+          animation="tada"
+        >
+          <TextCom
+            style={{ color: 'red' }}
+            contenTextItalic
+          >
+            {error}
+          </TextCom>
+        </Animatable.View>}
+      </View>
+
       <View style={{
         flex: 1,
         flexDirection: 'row',

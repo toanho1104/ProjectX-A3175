@@ -17,4 +17,12 @@ export const icons = {
   google: require('./google.png'),
   apple: require('./apple.png'),
   next: require('./next.png'),
+  contact: require('./contact.png'),
+  infor: require('./infor.png'),
+  setting: require('./setting.png'),
+  userSetting: require('./userSetting.png'),
+  youtube: require('./youtube.png'),
+  gmail: require('./gmail.png'),
+  calendar: require('./calendar.png'),
+  camera: require('./camera.png'),
 }
