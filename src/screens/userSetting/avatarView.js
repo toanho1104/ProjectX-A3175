@@ -5,6 +5,7 @@ import {
 import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { IconCom, TextCom } from '../../components'
 import { icons } from '../../assets/icons'
 

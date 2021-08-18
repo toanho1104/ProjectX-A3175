@@ -11,6 +11,7 @@ import {
   AppSetting,
   Contact,
   CourseDetailsScreen,
+  LearningScreen,
   LoginScreen, Splash, UserSetting, Wellcome,
 } from '../screens'
 
@@ -70,6 +71,7 @@ const RootRoutes = () => {
           <Stack.Screen name={screenName.Contact} component={Contact} />
           <Stack.Screen name={screenName.AppInfor} component={AppInfor} />
           <Stack.Screen name={screenName.UserSetting} component={UserSetting} />
+          <Stack.Screen name={screenName.LearningScreen} component={LearningScreen} />
           {/* <Stack.Screen name={screenName.DetailsCourseListScreen} component={DetailsCourseListScreen} /> */}
           {/* <Stack.Screen name={screenName.SearchRoutes} component={SearchRoutes} /> */}
         </>)

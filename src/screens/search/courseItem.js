@@ -88,7 +88,7 @@ const CoureItem = ({ item, navigation }) => {
         <View style={styles.authorContentViewCon}>
           <View style={styles.authorContentView}>
             <FastImage
-              source={{ uri: avatarUrl }}
+              source={{ uri: `data:image/png;base64,${avatarUrl}` }}
               style={styles.avatar}
             />
             <TextCom

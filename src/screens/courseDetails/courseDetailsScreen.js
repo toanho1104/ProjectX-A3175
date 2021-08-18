@@ -14,10 +14,12 @@ import RenderHtml from 'react-native-render-html'
 import { BackGroundView, HeaderCom, TextCom } from '../../components'
 import { API_URL, screenName } from '../../configs'
 import { NavigationHelpers } from '../../utils'
+import { courseActions } from '../../redux/actions'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const CourseDetailsScreen = (props) => {
+  const dispatch = useDispatch()
   const { item } = props?.route?.params
   const {
     id, name, description, youtubeId, isLearning,
@@ -25,24 +27,34 @@ const CourseDetailsScreen = (props) => {
   const token = useSelector((state) => state.storage.token)
   const language = useSelector((state) => state.storage.language)
   const theme = useSelector((state) => state.storage.theme)
+  const [learning, setLearning] = useState(isLearning)
   const [detailsCourse, setDetailesCourse] = useState('')
-  console.tron.log(detailsCourse)
+
   useEffect(async () => {
     const responses = await axios.get(`${API_URL}/course/detailCourse/${id}`)
     setDetailesCourse(responses?.data?.data?.content)
   }, [])
 
-  // const getDetailsCourse = async () => {
-  //   const responses = await axios.get(`${API_URL}/course/detailCourse/${id}`)
-  //   setDetailesCourse(responses?.data?.data?.content)
-  // }
-
   const handleRegistration = () => {
     if (token) {
       if (isLearning) {
-
+        dispatch(courseActions.courseUnregister({
+          id: item.id,
+        }, {
+          headers: { token },
+        }, (resCourse) => {
+          setLearning(false)
+          console.log(resCourse.success)
+        }))
       } else {
-
+        dispatch(courseActions.courseRegister({
+          courseId: item.id,
+        }, {
+          headers: { token },
+        }, (resCourse) => {
+          setLearning(true)
+          NavigationHelpers.navigateToScreen(screenName.MyCourse)
+        }))
       }
     } else {
       Alert.alert(
@@ -131,10 +143,10 @@ const CourseDetailsScreen = (props) => {
 
         <TouchableOpacity
           onPress={handleRegistration}
-          style={[styles.footerButton, { backgroundColor: isLearning ? 'red' : theme.primary }]}
+          style={[styles.footerButton, { backgroundColor: learning ? 'red' : theme.primary }]}
         >
 
-          {isLearning
+          {learning
             ? <TextCom buttonTextBold textOnPrimary>
               {language.cancelRegistration}
             </TextCom>

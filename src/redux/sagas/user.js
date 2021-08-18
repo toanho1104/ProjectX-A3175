@@ -7,6 +7,7 @@ import { API_URL } from '../../configs'
 export default function* categorySaga() {
   yield takeLatest(userTypes.USER_LOGIN, login)
   yield takeLatest(userTypes.GET_USER_INFO, getUserInfo)
+  yield takeLatest(userTypes.UPDATE_USER_INFO, updateUserInfo)
 }
 function* login(action) {
   const { data, callback } = action?.payload
@@ -31,6 +32,25 @@ function* getUserInfo(action) {
 
   try {
     const response = yield call(() => axios.get(`${API_URL}/user/myInfo`, data))
+    if (response?.data?.success) {
+      yield put({
+        type: userTypes.GET_USER_INFO_SUCCESS,
+        payload: { data: response?.data?.data },
+      })
+    }
+    callback(response?.data)
+  } catch (error) {
+    console.log(error)
+    callback(error?.response.data)
+  }
+}
+function* updateUserInfo(action) {
+  const { data, header, callback } = action?.payload
+  console.tron.log(data)
+  console.tron.log(header)
+
+  try {
+    const response = yield call(() => axios.put(`${API_URL}/user/myInfo`, data, header))
     if (response?.data?.success) {
       yield put({
         type: userTypes.GET_USER_INFO_SUCCESS,

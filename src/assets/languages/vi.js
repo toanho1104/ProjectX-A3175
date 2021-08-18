@@ -62,4 +62,14 @@ export default {
   fullName: 'Họ và tên',
   dateOfBirth: 'Ngày sinh',
   address: 'Địa chỉ',
+
+  nullWarning: 'Không được để trống',
+  nameWarning: 'Vui lòng thêm đầy đủ họ tên',
+  addressWarning: 'Địa chỉ không đầy đủ',
+
+  start: 'Bắt ​​đầu',
+
+  mesUnregister: 'Hủy đăng ký thành công',
+  mesRegister: 'Đăng ký thành công',
+
 }

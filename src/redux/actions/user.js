@@ -12,3 +12,9 @@ export const getUserInfo = (data, callback) => {
     payload: { data, callback },
   }
 }
+export const updateUserInfo = (data, header, callback) => {
+  return {
+    type: userTypes.UPDATE_USER_INFO,
+    payload: { data, header, callback },
+  }
+}

@@ -3,13 +3,14 @@ import Wellcome from './wellcome/wellcomeScreen'
 import LoginScreen from './auth/login/loginScreen'
 import Explore from './explore/exploreScreen'
 import Search from './search/searchScreen'
-import Love from './love/loveScreen'
+import myCourse from './myCourse'
 import User from './user'
 import CourseDetailsScreen from './courseDetails/courseDetailsScreen'
 import DetailsCourseList from './detailsCourseList/index'
 import AppSetting from './appSetting'
 import Contact from './contact'
 import UserSetting from './userSetting'
+import LearningScreen from './learning'
 
 export {
   Splash,
@@ -17,11 +18,12 @@ export {
   LoginScreen,
   Explore,
   Search,
-  Love,
+  myCourse,
   User,
   CourseDetailsScreen,
   DetailsCourseList,
   AppSetting,
   Contact,
   UserSetting,
+  LearningScreen,
 }

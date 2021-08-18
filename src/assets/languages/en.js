@@ -62,4 +62,12 @@ export default {
   fullName: 'Full name',
   dateOfBirth: 'Date of birth',
   address: 'Address',
+
+  nullWarning: "Can't be left blank",
+  nameWarning: 'Please add your full name',
+  addressWarning: 'Địa chỉ không đầy đủ',
+
+  start: 'Start',
+  mesUnregister: 'Unsubscribe successfully',
+  mesRegister: 'Register successfully',
 }

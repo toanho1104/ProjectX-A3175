@@ -9,39 +9,27 @@ import { TextCom } from '../../components'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const HeaderTitle = ({ text }) => {
-  const language = useSelector((state) => state.storage.language)
-
+const Header = ({ text }) => {
   return (
     <View style={styles.container}>
       <TextCom
         textPrimary
-        headingMedium
+        headingSmall
+        style={{ opacity: 0.5, marginLeft: 24 * rate }}
       >
         {text}
       </TextCom>
-      {/* <TextCom
-        style={styles.seeMoreText}
-        textPrimary
-        linkTextNomarl
-      >
-        {language.seeMore}
-      </TextCom> */}
     </View>
   )
 }
 
-export default HeaderTitle
+export default Header
 
 const styles = StyleSheet.create({
   container: {
-    width: 345 * rate,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-  },
-  seeMoreText: {
-    opacity: 0.6,
+    height: 52 * rate,
+    // borderWidth: 1,
+    width,
+    justifyContent: 'center',
   },
 })

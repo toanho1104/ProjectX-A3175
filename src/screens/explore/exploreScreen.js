@@ -41,7 +41,7 @@ const Explore = () => {
       setDataMyCourse(myCourse)
     }
     setDataCourseOld(dataNew.reverse())
-  }, [])
+  }, [course])
 
   return (
     <BackGroundView style={styles.container}>
@@ -109,7 +109,7 @@ const Explore = () => {
         {token
           && <>
             <HeaderTitle text={language.myCourse} />
-            <View style={{ height: 280 * rate }}>
+            <View style={{ height: 280 * rate, width }}>
               <FlatList
                 horizontal
                 showsHorizontalScrollIndicator={false}

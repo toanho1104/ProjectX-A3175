@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import BottomTabBarCom from './BottomTabBar'
 import { screenName } from '../../configs'
 import {
-  Explore, Love, Search, User,
+  Explore, myCourse, User,
 } from '../../screens'
 import SearchRoutes from '../searchRoutes'
 
@@ -29,8 +29,8 @@ const BottomTabBarRoute = () => {
         options={{ title: language.search }}
       />
       <Tab.Screen
-        name={screenName.Love}
-        component={Love}
+        name={screenName.MyCourse}
+        component={myCourse}
         options={{ title: language.wishList }}
       />
       <Tab.Screen

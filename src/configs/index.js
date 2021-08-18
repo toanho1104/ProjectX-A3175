@@ -5,7 +5,7 @@ export const screenName = {
   Wellcome: 'Wellcome',
   LoginScreen: 'LoginScreen',
   Explore: 'Explore',
-  Love: 'Love',
+  MyCourse: 'MyCourse',
   User: 'User',
   CourseDetailsScreen: 'CourseDetailsScreen',
   BottomTabBarRoute: 'BottomTabBarRoute',
@@ -16,6 +16,7 @@ export const screenName = {
   Contact: 'Contact',
   AppInfor: 'AppInfor',
   UserSetting: 'UserSetting',
+  LearningScreen: 'LearningScreen',
 }
 
 export const bottom_tab_data = [
