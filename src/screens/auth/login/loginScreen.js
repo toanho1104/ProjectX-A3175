@@ -49,6 +49,9 @@ const LoginScreen = () => {
   const tongShow = () => {
     isShowPass(!showPass)
   }
+  const handalToRegister = () => {
+    NavigationHelpers.navigateToScreen(screenName.Register)
+  }
   const handleLogin = () => {
     dispatch(userActions.userLogin({
       userName,
@@ -164,7 +167,10 @@ const LoginScreen = () => {
                 {language?.noAccount}
                 {' '}
               </TextCom>
-              <TouchableOpacity style={{ alignItems: 'center' }}>
+              <TouchableOpacity
+                onPress={handalToRegister}
+                style={{ alignItems: 'center' }}
+              >
                 <TextCom
                   linkTextBold
                   textPrimary

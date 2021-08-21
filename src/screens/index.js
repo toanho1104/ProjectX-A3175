@@ -11,6 +11,7 @@ import AppSetting from './appSetting'
 import Contact from './contact'
 import UserSetting from './userSetting'
 import LearningScreen from './learning'
+import Register from './register'
 
 export {
   Splash,
@@ -26,4 +27,5 @@ export {
   Contact,
   UserSetting,
   LearningScreen,
+  Register,
 }

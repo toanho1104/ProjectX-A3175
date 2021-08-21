@@ -17,6 +17,7 @@ export const screenName = {
   AppInfor: 'AppInfor',
   UserSetting: 'UserSetting',
   LearningScreen: 'LearningScreen',
+  Register: 'Register',
 }
 
 export const bottom_tab_data = [

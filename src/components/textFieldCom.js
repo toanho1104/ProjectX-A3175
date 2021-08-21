@@ -20,7 +20,6 @@ const TextFieldCom = ({
   const [clearIcon, setClearIcon] = useState(false)
   const tranX = useRef(new Animated.Value(0)).current
   useEffect(() => {
-    console.log(error)
     if (string?.length === 0) {
       setClearIcon(false)
     } else { setClearIcon(true) }

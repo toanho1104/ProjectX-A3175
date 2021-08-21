@@ -72,4 +72,7 @@ export default {
   mesUnregister: 'Hủy đăng ký thành công',
   mesRegister: 'Đăng ký thành công',
 
+  email: 'Email',
+
+  key: 'ma xac thuc',
 }

@@ -12,7 +12,7 @@ import {
   Contact,
   CourseDetailsScreen,
   LearningScreen,
-  LoginScreen, Splash, UserSetting, Wellcome,
+  LoginScreen, Register, Splash, UserSetting, Wellcome,
 } from '../screens'
 
 import AppInfor from '../screens/appInfor'
@@ -81,6 +81,7 @@ const RootRoutes = () => {
             <Stack.Screen name={screenName.LoginScreen} component={LoginScreen} />
             <Stack.Screen name={screenName.BottomTabBarRoute} component={BottomTabBarRoute} />
             <Stack.Screen name={screenName.CourseDetailsScreen} component={CourseDetailsScreen} />
+            <Stack.Screen name={screenName.Register} component={Register} />
             {/* <Stack.Screen name={screenName.DetailsCourseListScreen} component={DetailsCourseListScreen} /> */}
             {/* <Stack.Screen name={screenName.SearchRoutes} component={SearchRoutes} /> */}
 

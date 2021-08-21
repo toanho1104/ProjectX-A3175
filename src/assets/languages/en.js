@@ -70,4 +70,8 @@ export default {
   start: 'Start',
   mesUnregister: 'Unsubscribe successfully',
   mesRegister: 'Register successfully',
+
+  email: 'Email address',
+
+  key: 'ma xac thuc',
 }
