@@ -5,8 +5,9 @@ import {
 import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
-import { BackGroundView, HeaderCom, TextCom } from '../../components'
+import { BackGroundView, TextCom } from '../../components'
 import CoureItem from './courseItem'
+import HeaderCom from './headerCom'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375

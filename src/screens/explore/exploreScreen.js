@@ -19,6 +19,7 @@ import { chunk } from '../../common'
 import CourseCategoryList from './courseCategoryList'
 import CoureItemList from './courseItemList'
 import HeaderTitle from './headerTitle'
+import Header from './header'
 
 // import I18n from '../../languages'
 
@@ -32,7 +33,7 @@ const Explore = () => {
   const course = useSelector((state) => state.courses.courseList)
   const [value, setValue] = useState('')
   const [dataCourseOld, setDataCourseOld] = useState()
-  const [dataMyCourse, setDataMyCourse] = useState()
+  const [dataMyCourse, setDataMyCourse] = useState([])
 
   useEffect(() => {
     const dataNew = [...course]
@@ -45,15 +46,16 @@ const Explore = () => {
 
   return (
     <BackGroundView style={styles.container}>
+      <Header text={language.explore} />
       <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
-        <SearchFieldCom
+        {/* <SearchFieldCom
           string={value}
           value={value}
           onChangeText={(val) => setValue(val)}
           handlerClearString={(val) => setValue(val)}
           returnKeyType="search"
           placeholder={language?.searchPlaceholder}
-        />
+        /> */}
         <HeaderTitle text={language.randomCourse} />
         <View style={{ height: 280 * rate }}>
           <FlatList
@@ -106,7 +108,7 @@ const Explore = () => {
             }}
           />
         </View>
-        {token
+        {dataMyCourse.length < 0
           && <>
             <HeaderTitle text={language.myCourse} />
             <View style={{ height: 280 * rate, width }}>

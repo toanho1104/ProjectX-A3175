@@ -230,10 +230,25 @@ const UserSetting = () => {
             </TextFieldCom>
             <View style={styles.spaceView} />
 
-            <View>
+            <TouchableOpacity
+              style={{
+                backgroundColor: theme.primary,
+                width: 200 * rate,
+                height: 48 * rate,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                marginTop: 10,
+              }}
+            >
 
-              <Button onPress={handleSubmit} title="Submit" />
-            </View>
+              <TextCom
+                textOnPrimary
+                buttonTextBold
+              >
+                {language.change}
+              </TextCom>
+            </TouchableOpacity>
 
             <DateTimePickerModal
               isVisible={isDatePickerVisible}

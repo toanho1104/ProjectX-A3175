@@ -75,4 +75,14 @@ export default {
   email: 'Email',
 
   key: 'ma xac thuc',
+  getKey: 'get key',
+  change: 'change',
+
+  mailWarning: 'mail khong dung',
+
+  mailAth: ' mail aut',
+
+  mailContent: 'kiem tra mail cuar bnan, lu ys ma xac nhan co hieu luc trong ',
+
+  detailLearning: 'noi dung khoa hoc',
 }

@@ -6,10 +6,37 @@ import FastImage from 'react-native-fast-image'
 import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { TextCom } from '../../components'
+import { NavigationHelpers } from '../../utils'
+import { screenName } from '../../configs'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
 const CourseCategoryList = ({ data, odd }) => {
+  const Item = ({ item }) => {
+    const handleToCourseDetailList = () => {
+      NavigationHelpers.navigateToScreenInTab(screenName.SearchRoutes, screenName.DetailsCourseListScreen, { item })
+    }
+    const theme = useSelector((state) => state.storage.theme)
+    return (
+      <TouchableOpacity
+        onPress={handleToCourseDetailList}
+        style={[styles.itemView, { backgroundColor: theme?.backgroundSecondary }]}
+      >
+        <FastImage
+          source={{ uri: item?.imageUrl }}
+          style={styles.image}
+        />
+
+        <TextCom
+          textPrimary
+          contenTextRegular
+        >
+          {item.name}
+        </TextCom>
+      </TouchableOpacity>
+
+    )
+  }
   return (
     <View style={styles.container}>
       {odd
@@ -32,25 +59,6 @@ const CourseCategoryList = ({ data, odd }) => {
   )
 }
 
-const Item = ({ item }) => {
-  const theme = useSelector((state) => state.storage.theme)
-  return (
-    <View style={[styles.itemView, { backgroundColor: theme?.backgroundSecondary }]}>
-      <FastImage
-        source={{ uri: item?.imageUrl }}
-        style={styles.image}
-      />
-
-      <TextCom
-        textPrimary
-        contenTextRegular
-      >
-        {item.name}
-      </TextCom>
-    </View>
-
-  )
-}
 export default CourseCategoryList
 
 const styles = StyleSheet.create({

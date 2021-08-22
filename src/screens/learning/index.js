@@ -18,6 +18,7 @@ const LearningScreen = (props) => {
   const { name, id, youtubeId } = props.route.params.item
 
   const theme = useSelector((state) => state.storage.theme)
+  const language = useSelector((state) => state.storage.language)
   const [data, setData] = useState([])
   const [videoUrl, setVideoUrl] = useState(youtubeId)
   const [title, setTitle] = useState('')
@@ -58,9 +59,10 @@ const LearningScreen = (props) => {
       <TextCom
         textPrimary
         contenTextBold
+        style={{ width: 345 * rate, margin: 15 }}
       // style={{ width: 345 * rate }}
       >
-        noi dung khoa hoc
+        {language.detailLearning}
       </TextCom>
       <SectionList
         stickySectionHeadersEnabled

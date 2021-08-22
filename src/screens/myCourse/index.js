@@ -3,7 +3,7 @@ import {
   View, Dimensions, SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image, FlatList,
 } from 'react-native'
 import { useSelector } from 'react-redux'
-import { HeaderCom } from '../../components'
+import { HeaderCom, TextCom } from '../../components'
 import BackGroundCom from '../../components/backgroundCom'
 import Header from './header'
 import ItemCourse from './itemCourse'
@@ -19,12 +19,25 @@ const Love = () => {
     const newData = course.filter((item) => item.isLearning === true)
     setMyCourse(newData)
   }, [course])
+  const EmptyDataList = () => {
+    return (
+      <View>
+        <TextCom
+          textPrimary
+          contenTextItalic
+        >
+          {language?.emptyList}
+        </TextCom>
+      </View>
+    )
+  }
   return (
     <BackGroundCom>
       <Header text={language.wishList} />
       <FlatList
         data={myCourse}
         extraData={myCourse}
+        ListEmptyComponent={EmptyDataList}
         keyExtractor={(item) => `listItem${item.id}`}
         renderItem={({ item, index }) => {
           return (
