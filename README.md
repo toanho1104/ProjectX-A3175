@@ -1,4 +1,3 @@
-# ProjectX-A3175
 # Đự án demo
 ## _Khóa học trực tuyến_
 
