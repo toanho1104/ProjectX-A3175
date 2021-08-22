@@ -7,7 +7,7 @@ import Reactotron from 'reactotron-react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {
-  BackGroundView, TextCom, TextInputCom, TextFieldCom, IconCom,
+  BackGroundView, TextCom, TextInputCom, TextFieldCom, IconCom, LoadingCom,
 } from '../../../components'
 import { images } from '../../../assets/images'
 import { icons } from '../../../assets/icons'
@@ -25,6 +25,7 @@ const LoginScreen = () => {
   const [userName, setUserName] = useState('admin')
   const [passWord, setPassWord] = useState('123456')
   const [showPass, isShowPass] = useState(true)
+  const [showLoading, isShowLoading] = useState(false)
 
   // const backAction = () => {
   //   Alert.alert('Hold on!', 'Are you sure you want to go back?', [
@@ -53,6 +54,7 @@ const LoginScreen = () => {
     NavigationHelpers.navigateToScreen(screenName.Register)
   }
   const handleLogin = () => {
+    // isShowLoading(true)
     dispatch(userActions.userLogin({
       userName,
       passWord,
@@ -66,15 +68,13 @@ const LoginScreen = () => {
             dispatch(userActions.getUserInfo({
               headers: { token: userRes?.data?.token },
             }, () => {
-              NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+              Helpers.showMess(language.loginMes, 'success')
+              NavigationHelpers.navigateToScreen(screenName.BottomTabBarRoute)
             }))
           }
         }))
-
-        Helpers.showMess('Đăng nhập thành công', 'success')
-        NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
       } else {
-        Helpers.showMess('Đăng nhập thành công')
+        Helpers.showMess(language.loginMesF)
       }
     }))
   }
@@ -183,6 +183,7 @@ const LoginScreen = () => {
             </View>
           </KeyboardAwareScrollView>
         </ScrollView>
+
       </BackGroundView>
     </TouchableWithoutFeedback>
   )

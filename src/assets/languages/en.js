@@ -73,15 +73,23 @@ export default {
 
   email: 'Email address',
 
-  key: 'ma xac thuc',
-  getKey: 'get key',
-  change: 'change',
+  key: 'Verification codes',
+  getKey: 'Confirm',
+  change: 'Change',
 
-  mailWarning: 'mail khong dung',
+  mailWarning: 'Invalid email!',
 
-  mailAth: ' mail aut',
-  mailContent: 'kiem tra mail cuar bnan, lu ys ma xac nhan co hieu luc trong ',
+  mailAth: 'Email Authentication',
+  mailContent: 'Check your Mail, save it, the verification code is only valid for!',
 
-  detailLearning: 'noi dung khoa hoc',
+  detailLearning: 'Course content',
+  loginMes: 'Logged in successfully',
+  loginMesF: 'Wrong username or password',
+  updateMes: 'Update successful',
 
+  takePhoto: 'Take a photo',
+  cloosePhoto: 'Closed a photo',
+  codeMes: 'The code is not correctly',
+  emailMes: 'Email is registered  ',
+  userResMes: 'Username already exists',
 }

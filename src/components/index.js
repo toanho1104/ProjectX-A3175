@@ -7,6 +7,7 @@ import TextInputCom from './textInputCom'
 import TextFieldCom from './textFieldCom'
 import ModelCom from './modelCom'
 import BorderLine from './borderLine'
+import LoadingCom from './loadingCom'
 
 export {
   BackGroundView,
@@ -18,4 +19,5 @@ export {
   TextFieldCom,
   ModelCom,
   BorderLine,
+  LoadingCom,
 }

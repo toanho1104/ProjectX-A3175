@@ -8,4 +8,5 @@ export const images = {
   record: require('./19162-red-recorder.json'),
   noAvatar: require('./noAvatar.png'),
   time60: require('./lf30_editor_s2wumriq.json'),
+  load: require('./196-material-wave-loading.json'),
 }

@@ -14,7 +14,7 @@ import AnimatedLottieView from 'lottie-react-native'
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import BackGroundCom from '../../components/backgroundCom'
 import {
-  HeaderCom, TextCom, TextFieldCom, TextInputCom,
+  HeaderCom, LoadingCom, TextCom, TextFieldCom, TextInputCom,
 } from '../../components'
 import { API_URL, screenName } from '../../configs'
 import { Helpers, NavigationHelpers } from '../../utils'
@@ -37,6 +37,8 @@ const Register = () => {
   const [userName, setUserName] = useState()
   const [passWord, setPassWord] = useState()
   const [email, setEmail] = useState()
+  const [loading, setLoading] = useState(false)
+
   console.log(email, token, userName, passWord, resOTP)
 
   useEffect(() => {
@@ -68,27 +70,35 @@ const Register = () => {
   const handleCreateUser = async (value) => {
     setUserName(value.userName)
     setPassWord(value.passWord)
+    setLoading(true)
     const res = await axios.post(`${API_URL}/auth/signUp`, {
       userName: value.userName,
       passWord: value.passWord,
       fullName: value.fullName,
     })
+
     if (res?.data?.success) {
+      setLoading(false)
       setToken(res.data.data.token)
     } else {
-      Helpers.showMess('user ton tai')
+      Helpers.showMess(language.userResMes)
     }
   }
 
   const handleAthMail = async (value) => {
-    setShowOPT(true)
-    setStartTimer(true)
     setEmail(value.email)
     const res = await axios.post(`${API_URL}/auth/sendMail`, {
       email: value.email,
     })
-    setSecret(res?.data?.secret)
-    setResOPT(res?.data?.token)
+    console.log(res)
+    if (res?.data?.success) {
+      setSecret(res?.data?.secret)
+      setResOPT(res?.data?.token)
+      setShowOPT(true)
+      setStartTimer(true)
+    } else {
+      Helpers.showMess(language.emailMes)
+    }
   }
   const handleSubmit = async (value) => {
     console.log(typeof value)
@@ -117,19 +127,17 @@ const Register = () => {
                   dispatch(userActions.getUserInfo({
                     headers: { token: userRes?.data?.token },
                   }, () => {
-                    NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
+                    Helpers.showMess(language.loginMes, 'success')
+                    NavigationHelpers.navigateToScreen(screenName.BottomTabBarRoute)
                   }))
                 }
               }))
-
-              Helpers.showMess('Đăng nhập thành công', 'success')
-              NavigationHelpers.navigateToScreenAndReplace(screenName.BottomTabBarRoute)
             } else {
-              Helpers.showMess('Đăng nhập thành công')
+              Helpers.showMess(language.loginMesF)
             }
           }))
         }
-      } else { Helpers.showMess('ma khong dung') }
+      } else { Helpers.showMess(language.codeMes) }
     }
   }
   const AuthenEmail = () => {
@@ -354,7 +362,7 @@ const Register = () => {
           </Formik>
 
       }
-
+      <LoadingCom isShow={loading} />
     </BackGroundCom>
   )
 }

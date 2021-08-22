@@ -74,15 +74,24 @@ export default {
 
   email: 'Email',
 
-  key: 'ma xac thuc',
-  getKey: 'get key',
-  change: 'change',
+  key: 'Mã xác thực',
+  getKey: 'Xác nhận',
+  change: 'Lưu lại',
 
-  mailWarning: 'mail khong dung',
+  mailWarning: 'Mail không hợp lệ!',
 
-  mailAth: ' mail aut',
+  mailAth: ' Xác thực Email',
 
-  mailContent: 'kiem tra mail cuar bnan, lu ys ma xac nhan co hieu luc trong ',
+  mailContent: 'Kiểm tra Mail của bạn, lưu lý, mã xác thực chỉ có hiệu lực trong:',
 
-  detailLearning: 'noi dung khoa hoc',
+  detailLearning: 'Nội dung khóa học',
+  loginMes: 'Đăng nhập thành công',
+  loginMesF: 'Sai tên hoặc mật khẩu',
+  updateMes: 'Cập nhật thành công',
+
+  takePhoto: 'Chụp ảnh',
+  cloosePhoto: 'Chọn ảnh',
+  codeMes: 'Mã không đúng',
+  emailMes: 'Mail đã được đăng ký',
+  userResMes: 'Tên người dùng đã tồn tại',
 }

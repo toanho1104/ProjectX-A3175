@@ -11,7 +11,9 @@ import { SharedElement } from 'react-navigation-shared-element'
 import Video from 'react-native-video'
 import YouTube from 'react-native-youtube'
 import RenderHtml from 'react-native-render-html'
-import { BackGroundView, HeaderCom, TextCom } from '../../components'
+import {
+  BackGroundView, HeaderCom, LoadingCom, TextCom,
+} from '../../components'
 import { API_URL, screenName } from '../../configs'
 import { NavigationHelpers } from '../../utils'
 import { courseActions } from '../../redux/actions'
@@ -29,6 +31,7 @@ const CourseDetailsScreen = (props) => {
   const theme = useSelector((state) => state.storage.theme)
   const [learning, setLearning] = useState(isLearning)
   const [detailsCourse, setDetailesCourse] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(async () => {
     const responses = await axios.get(`${API_URL}/course/detailCourse/${id}`)
@@ -38,21 +41,24 @@ const CourseDetailsScreen = (props) => {
   const handleRegistration = () => {
     if (token) {
       if (isLearning) {
+        setLoading(true)
         dispatch(courseActions.courseUnregister({
           id: item.id,
         }, {
           headers: { token },
         }, (resCourse) => {
           setLearning(false)
-          console.log(resCourse.success)
+          setLoading(false)
         }))
       } else {
+        setLoading(true)
         dispatch(courseActions.courseRegister({
           courseId: item.id,
         }, {
           headers: { token },
         }, (resCourse) => {
           setLearning(true)
+          setLoading(false)
           NavigationHelpers.navigateToScreen(screenName.MyCourse)
         }))
       }
@@ -155,6 +161,7 @@ const CourseDetailsScreen = (props) => {
             </TextCom>}
         </TouchableOpacity>
       </View>
+      <LoadingCom isShow={loading} />
     </BackGroundView>
   )
 }

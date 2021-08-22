@@ -12,7 +12,7 @@ import { parse, isDate } from 'date-fns'
 import Moment from 'moment'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker'
 import {
-  BackGroundView, BorderLine, HeaderCom, IconCom, ModelCom, TextCom, TextFieldCom,
+  BackGroundView, BorderLine, HeaderCom, IconCom, LoadingCom, ModelCom, TextCom, TextFieldCom,
 } from '../../components'
 import AvatarView from './avatarView'
 import { images } from '../../assets/images'
@@ -36,6 +36,7 @@ const UserSetting = () => {
   const [imgUrl, setImgUrl] = useState(avatarUrl)
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
   const [date, setDate] = useState(dateFormat(dateOfBirth))
+  const [loading, isLoading] = useState(false)
 
   const tongShowModal = () => {
     setShowModal(!isShowModal)
@@ -48,7 +49,7 @@ const UserSetting = () => {
     setDatePickerVisibility(false)
   }
   const handleUpdateUserInfo = (value) => {
-    console.log(value)
+    isLoading(true)
     const {
       fullName, address, dateOfBirth,
     } = value
@@ -61,7 +62,8 @@ const UserSetting = () => {
       headers: { token },
     }, (res) => {
       if (res.success) {
-        Helpers.showMess('Cap nhat thanh cong', 'success')
+        isLoading(false)
+        Helpers.showMess(language.updateMes, 'success')
       }
     }))
   }
@@ -121,9 +123,9 @@ const UserSetting = () => {
       // .max(12, 'Password Too Long!')
       .required(language.nullWarning),
     dateOfBirth: Yup.date()
-      .required(language.nullWarning)
-      // .transform(parseDateString)
-      .max(today, 'ngay khong hop le'),
+      .required(language.nullWarning),
+    // .transform(parseDateString)
+    // .max(today, 'ngay khong hop le'),
   })
 
   const ModelView = () => {
@@ -137,7 +139,7 @@ const UserSetting = () => {
             textOnPrimary
             buttonTextBold
           >
-            chon anh thu vien
+            {language.cloosePhoto}
           </TextCom>
         </TouchableOpacity>
         <TouchableOpacity
@@ -148,7 +150,7 @@ const UserSetting = () => {
             textOnPrimary
             buttonTextBold
           >
-            Chup anh
+            {language.takePhoto}
           </TextCom>
         </TouchableOpacity>
         <View style={{ height: 20 * rate }} />
@@ -161,7 +163,7 @@ const UserSetting = () => {
             textOnPrimary
             buttonTextBold
           >
-            Huy bo
+            {language.cancel}
           </TextCom>
         </TouchableOpacity>
       </View>
@@ -231,6 +233,7 @@ const UserSetting = () => {
             <View style={styles.spaceView} />
 
             <TouchableOpacity
+              onPress={handleSubmit}
               style={{
                 backgroundColor: theme.primary,
                 width: 200 * rate,
@@ -272,7 +275,7 @@ const UserSetting = () => {
         )}
 
       </Formik>
-
+      <LoadingCom isShow={loading} />
     </BackGroundView>
   )
 }
@@ -293,8 +296,8 @@ const styles = StyleSheet.create({
     width,
     height: 265 * rate,
     backgroundColor: 'white',
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    borderRadius: 15,
+
     // justifyContent: 'center',
     alignItems: 'center',
   },

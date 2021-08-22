@@ -12,7 +12,7 @@ import { screenName } from '../../configs'
 
 const { width } = Dimensions.get('window')
 const rate = width / 375
-const ItemCourse = ({ item }) => {
+const ItemCourse = ({ item, handleToLearning, handleUnregister }) => {
   const dispatch = useDispatch()
   const { name, posterUrl } = item
 
@@ -20,21 +20,22 @@ const ItemCourse = ({ item }) => {
   const language = useSelector((state) => state.storage.language)
   const token = useSelector((state) => state.storage.token)
 
-  const handleToLearning = () => {
-    NavigationHelpers.navigateToScreen(screenName.LearningScreen, { item })
-  }
+  // const handleToLearning = () => {
+  //   NavigationHelpers.navigateToScreen(screenName.LearningScreen, { item })
+  // }
 
-  const handleUnregister = () => {
-    dispatch(courseActions.courseUnregister({
-      id: item.id,
-    }, {
-      headers: { token },
-    }, (response) => {
-      if (response.success) {
-        Helpers.showMess(language.mesUnregister, 'success')
-      }
-    }))
-  }
+  // const handleUnregister = () => {
+  //   dispatch(courseActions.courseUnregister({
+  //     id: item.id,
+  //   }, {
+  //     headers: { token },
+  //   }, (response) => {
+  //     showLoading(false)
+  //     if (response.success) {
+  //       Helpers.showMess(language.mesUnregister, 'success')
+  //     }
+  //   }))
+  // }
 
   return (
     <View style={styles.container}>
