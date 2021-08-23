@@ -19,7 +19,7 @@ BackEnd: nodejs, mySql
 - Xem video chi tiết khóa học được theo dõi
 
 Video giới thiệu: [YoutubeLinks](https://nodejs.org/)
-Tải file apk: [GoogleDrive](https://nodejs.org/)
+Tải file apk: [GoogleDrive](https://drive.google.com/file/d/1p9ta8c_Mjk7qjY0ELA9rCN7gLolm8v3y/view?usp=sharing)
 
 ```sh
 clone ProjectX-A3175
