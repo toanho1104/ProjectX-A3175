@@ -21,7 +21,7 @@ BackEnd: nodejs, mySql
 Video giới thiệu: [YoutubeLinks](https://nodejs.org/)
 Tải file apk: [GoogleDrive](https://drive.google.com/file/d/1p9ta8c_Mjk7qjY0ELA9rCN7gLolm8v3y/view?usp=sharing)
 
-[![Watch the video]](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
 
 ```sh
 clone ProjectX-A3175
