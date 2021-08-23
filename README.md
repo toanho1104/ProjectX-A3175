@@ -10,7 +10,7 @@ BackEnd: nodejs, mySql
 
 - Thay đổi ngôn ngữ.
 - Chế độ giao diện ban ngày và ban đêm.
-- Đăng nhập, đăng xuất, đăng ký với mail.
+- Đăng nhập, đăng xuất, đăng ký với mail (do mình test gửi nhiều quá, nên bị đánh giá spam nên bị hạn chế tạm thời).
 - Show danh sách khóa học.
 - Lưu lại phiên đăng nhập.
 - Theo dõi khóa học, danh mục khóa học
@@ -18,7 +18,7 @@ BackEnd: nodejs, mySql
 - Thêm khóa học vào mục yêu thích để theo dõi
 - Xem video chi tiết khóa học được theo dõi
 
-Video giới thiệu: [YoutubeLinks](https://nodejs.org/)
+Video demo: [YoutubeLinks](https://www.youtube.com/watch?v=4SuyxXWjOZc)
 Tải file apk: [GoogleDrive](https://drive.google.com/file/d/1p9ta8c_Mjk7qjY0ELA9rCN7gLolm8v3y/view?usp=sharing)
 
 
