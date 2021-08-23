@@ -33,8 +33,24 @@ yarn android
 
 
 <p align="center">
-  <img src="https://i.imgur.com/vKb2F1B.png" width="30%" title="hover text">
-  <img src="https://i.imgur.com/vKb2F1B.png" width="30%" alt="accessibility text">
+  <img src="./screenShot/1.jpg" width="30%" >
+  <img src="./screenShot/2.jpg" width="30%" >
+  <img src="./screenShot/3.jpg" width="30%" >
+</p>
+<p align="center">
+  <img src="./screenShot/4.jpg" width="30%" >
+  <img src="./screenShot/5.jpg" width="30%" >
+  <img src="./screenShot/6.jpg" width="30%" >
+</p>
+<p align="center">
+  <img src="./screenShot/7.jpg" width="30%" >
+  <img src="./screenShot/8.jpg" width="30%" >
+  <img src="./screenShot/9.jpg" width="30%" >
+</p>
+<p align="center">
+  <img src="./screenShot/10.jpg" width="30%" >
+  <img src="./screenShot/11.jpg" width="30%" >
+  <img src="./screenShot/12.jpg" width="30%" >
 </p>
 
 
