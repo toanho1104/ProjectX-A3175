@@ -30,7 +30,7 @@ yarn
 yarn start
 yarn android
 ```
-# Ảnh chụp màng hình
+# Ảnh chụp màn hình
 
 <p align="center">
   <img src="./screenShot/1.jpg" width="30%" >
