@@ -10,7 +10,7 @@ BackEnd: nodejs, mySql
 
 - Thay đổi ngôn ngữ.
 - Chế độ giao diện ban ngày và ban đêm.
-- Đăng nhập, đăng xuất, đăng ký với mail (do mình test gửi nhiều quá, nên bị đánh giá spam nên bị hạn chế tạm thời).
+- Đăng nhập, đăng xuất, đăng ký với mail (do mình test gửi nhiều quá, nên bị đánh giá spam nên bị hạn chế tạm thời). 
 - Show danh sách khóa học.
 - Lưu lại phiên đăng nhập.
 - Theo dõi khóa học, danh mục khóa học
